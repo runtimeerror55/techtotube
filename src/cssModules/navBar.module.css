@@ -1,11 +1,39 @@
 .nav {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       background-color: #1a866b;
       color: white;
+      padding: 10px;
+      align-items: center;
+      width: 100%;
+}
+
+.side-bar-open-button {
+      margin-left: 10px;
+      margin-right: 10px;
+      background-color: transparent;
+      color: white;
+      height: 100%;
+      cursor: pointer;
+      font-size: 25px;
+}
+.logo {
+      margin: 10px;
+      font-size: 25px;
+      font-weight: bold;
 }
 
 .nav-link {
       color: white;
+      margin: 10px;
+}
+
+.search-bar {
+      background-color: white;
+      border: none;
+      width: 30vw;
+      height: 30px;
+      border-radius: 20px;
       padding: 5px;
+      outline-color: teal;
 }

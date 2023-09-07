@@ -1,0 +1,115 @@
+.main {
+      padding: 5%;
+      justify-content: center;
+      display: flex;
+}
+
+.video-section {
+      height: 90%;
+      flex-grow: 1;
+      height: 700px;
+      display: flex;
+      flex-direction: column;
+}
+.video-iframe {
+      border-radius: 30px;
+      flex-grow: 1;
+}
+
+.video-info-and-options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 5px;
+}
+.channel-info {
+      display: flex;
+      align-items: center;
+      background-color: lightblue;
+      width: fit-content;
+      padding-right: 5px;
+      padding-left: 5px;
+      border-radius: 30px;
+      text-align: center;
+}
+.channel-image {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      margin: 10px;
+}
+
+.channel-name {
+      font-weight: bold;
+      font-size: 12px;
+}
+
+.channel-subscribers {
+      font-size: 12px;
+}
+
+.video-options {
+      margin-left: 5px;
+      display: flex;
+}
+.video-like-button {
+      background-color: transparent;
+      padding-right: 10px;
+      padding-left: 10px;
+      padding-top: 8px;
+      padding-bottom: 8px;
+      background-color: lightblue;
+      border-radius: 15px;
+      margin: 5px;
+      cursor: pointer;
+}
+
+.video-like-icon {
+      margin-right: 2px;
+}
+
+.more-videos-section {
+      margin-left: 20px;
+      overflow-y: scroll;
+      height: 700px;
+}
+
+.video {
+      width: 300px;
+      margin: 10px;
+      position: relative;
+      margin-top: 20px;
+}
+.video-items {
+      display: flex;
+}
+.channel-image {
+      height: 50px;
+      width: 55px;
+      border-radius: 50%;
+      margin: 10px;
+}
+
+.video-thumbnail {
+      width: 300px;
+      height: 150px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+}
+.video-title {
+      font-size: 15px;
+      font-weight: bold;
+      margin: 2px;
+}
+.video-channel,
+.video-views {
+      font-size: 13px;
+      font-weight: 600;
+      margin: 2px;
+}
+
+.delete-video-from-play-list-button {
+      margin-top: auto;
+      cursor: pointer;
+      color: red;
+}

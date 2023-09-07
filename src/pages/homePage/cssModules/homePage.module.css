@@ -1,4 +1,14 @@
-.page {
-      background-color: #1a866b;
-      height: 100vh;
+.main {
+      background-color: aliceblue;
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+}
+
+.videos {
+      display: flex;
+      padding: 10px;
+      justify-content: space-between;
+      flex-wrap: wrap;
 }

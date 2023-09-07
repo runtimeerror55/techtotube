@@ -1,0 +1,43 @@
+.side-bar-overlay {
+      background-color: lightcyan;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      z-index: 1000;
+}
+
+.side-bar-close-button {
+      background-color: transparent;
+      font-size: 25px;
+      margin-right: 5px;
+      cursor: pointer;
+}
+.side-bar-close-button:hover {
+      color: white;
+}
+
+.side-bar-links {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      height: 100%;
+}
+
+.side-bar-link {
+      color: black;
+      font-size: 15px;
+      padding: 10px;
+}
+
+.side-bar-link:hover {
+      color: white;
+      background-color: black;
+}
+
+.side-bar-link-icon {
+      margin-right: 10px;
+}

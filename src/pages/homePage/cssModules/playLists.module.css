@@ -1,0 +1,94 @@
+.play-lists-options {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+}
+
+.play-lists-heading {
+      text-align: center;
+      margin: 5px;
+}
+
+.create-new-playlist {
+      padding: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+}
+.input-new-playlist {
+      color: black;
+      border: 2px solid black;
+      border-radius: 20px;
+      flex-grow: 1;
+      margin-right: 5px;
+      padding: 2px;
+}
+.play-lists {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+}
+.play-list {
+      padding: 10px;
+      width: 100%;
+      text-align: start;
+      background-color: transparent;
+      display: flex;
+      justify-content: space-between;
+}
+
+.add-to-play-list-button,
+.remove-from-play-list-button {
+      margin: 2px;
+      background-color: slateblue;
+      columns: white;
+      padding-right: 3px;
+      padding-left: 3px;
+      padding-top: 1px;
+      width: 60px;
+      padding-bottom: 1px;
+      border-radius: 20px;
+      color: white;
+      cursor: pointer;
+}
+
+.remove-from-play-list-button {
+      background-color: red;
+}
+
+.save-and-close-buttons {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+}
+
+.play-lists-close-button {
+      margin: 2px;
+      background-color: red;
+      columns: white;
+      padding-right: 8px;
+      padding-left: 8px;
+      padding-top: 3px;
+      padding-bottom: 3px;
+      border-radius: 20px;
+      color: white;
+      cursor: pointer;
+}
+
+.create-new-playlist-button {
+      background-color: green;
+      padding-right: 10px;
+      padding-left: 10px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-radius: 20px;
+      color: white;
+      cursor: pointer;
+}
