@@ -4,11 +4,10 @@ import styles from "../cssModules/video.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFutbol } from "@fortawesome/free-solid-svg-icons";
 import { VideoOptions } from "./videoOptions";
-import { PlayLists } from "./playLists";
+import { PlayLists } from "../../../components/playListsOverLay/playLists";
 
 export const Video = ({ video }) => {
       const [showVideoOptions, setShowVideoOptions] = useState(false);
-      const [playLists, setPlayLists] = useState(false);
 
       const videoOptiosOpenButtonHandler = () => {
             setShowVideoOptions(true);
@@ -58,19 +57,8 @@ export const Video = ({ video }) => {
                               videoOptiosCloseButtonHandler={
                                     videoOptiosCloseButtonHandler
                               }
-                              setPlayLists={setPlayLists}
                               setShowVideoOptions={setShowVideoOptions}
                         ></VideoOptions>
-                  ) : (
-                        ""
-                  )}
-
-                  {playLists ? (
-                        <PlayLists
-                              playLists={playLists}
-                              setPlayLists={setPlayLists}
-                              video={video}
-                        ></PlayLists>
                   ) : (
                         ""
                   )}

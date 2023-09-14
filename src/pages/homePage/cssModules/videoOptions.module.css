@@ -46,3 +46,16 @@
 .video-options-close-button-icon {
       margin-left: auto;
 }
+
+.play-lists-loader {
+      position: fixed;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+}

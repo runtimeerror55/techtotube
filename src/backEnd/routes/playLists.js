@@ -1,11 +1,14 @@
 const express = require("express");
 const router = express.Router();
 const PlayListsModel = require("../models/playListsModel");
+const { isLoggedIn } = require("../middleware");
 
 router.route("/playLists")
-      .get(async (request, response) => {
+      .get(isLoggedIn, async (request, response) => {
             try {
-                  const playLists = await PlayListsModel.findOne().populate({
+                  const playLists = await PlayListsModel.findOne({
+                        user: request.user._id,
+                  }).populate({
                         path: "playLists",
                         populate: {
                               path: "videos",
@@ -14,7 +17,12 @@ router.route("/playLists")
                   });
 
                   if (!playLists) {
-                        response.json([]);
+                        setTimeout(() => {
+                              response.status(500).json({
+                                    status: "error",
+                                    message: "no play lists found",
+                              });
+                        }, 1000);
                   } else {
                         setTimeout(() => {
                               response.status(200).json({
@@ -35,9 +43,11 @@ router.route("/playLists")
                   }, 1000);
             }
       })
-      .post(async (request, response) => {
+      .post(isLoggedIn, async (request, response) => {
             try {
-                  const document = await PlayListsModel.findOne({});
+                  const document = await PlayListsModel.findOne({
+                        user: request.user._id,
+                  });
                   if (!document) {
                         const newPlayList = new PlayListsModel({
                               playLists: [
@@ -45,12 +55,13 @@ router.route("/playLists")
                                           name: request.body.playList,
                                     },
                               ],
+                              user: request.user._id,
                         });
 
                         await newPlayList.save();
                         response.json({
                               status: "success",
-                              message: "created successfully",
+                              message: "created play list",
                               payload: newPlayList.playLists,
                         });
                   } else {
@@ -60,7 +71,7 @@ router.route("/playLists")
                         await document.save();
                         response.json({
                               status: "success",
-                              message: "created successfully",
+                              message: "created play list",
                               payload: document.playLists,
                         });
                   }
@@ -69,32 +80,44 @@ router.route("/playLists")
             }
       });
 
-router.route("/playLists/:playListId").delete(async (request, response) => {
-      try {
-            const document = await PlayListsModel.findOne({});
-            const playListIndex = document.playLists.findIndex((playList) => {
-                  return playList._id.toString() === request.params.playListId;
-            });
-
-            document.playLists.splice(playListIndex, 1);
-            document.save();
-            setTimeout(() => {
-                  response.status(200).json({
-                        status: "success",
-                        message: "deleted succesfully",
+router.route("/playLists/:playListId").delete(
+      isLoggedIn,
+      async (request, response) => {
+            try {
+                  const document = await PlayListsModel.findOne({
+                        user: request.user._id,
                   });
-            }, 1000);
-      } catch (error) {
-            response
-                  .status(500)
-                  .json({ status: "error", message: error.message });
+                  const playListIndex = document.playLists.findIndex(
+                        (playList) => {
+                              return (
+                                    playList._id.toString() ===
+                                    request.params.playListId
+                              );
+                        }
+                  );
+
+                  document.playLists.splice(playListIndex, 1);
+                  document.save();
+                  setTimeout(() => {
+                        response.status(200).json({
+                              status: "success",
+                              message: "deleted the play list",
+                        });
+                  }, 1000);
+            } catch (error) {
+                  response
+                        .status(500)
+                        .json({ status: "error", message: error.message });
+            }
       }
-});
+);
 
 router.route("/playLists/:playListId/:videoId")
-      .put(async (request, response) => {
+      .put(isLoggedIn, async (request, response) => {
             try {
-                  const document = await PlayListsModel.findOne({}).populate({
+                  const document = await PlayListsModel.findOne({
+                        user: request.user._id,
+                  }).populate({
                         path: "playLists",
                         populate: { path: "videos" },
                   });
@@ -122,7 +145,7 @@ router.route("/playLists/:playListId/:videoId")
                   } else {
                         response.json({
                               status: "error",
-                              message: "already present",
+                              message: "already present in the play list",
                         });
                   }
             } catch (error) {
@@ -131,9 +154,11 @@ router.route("/playLists/:playListId/:videoId")
                         .json({ status: "errro", message: error.message });
             }
       })
-      .delete(async (request, response) => {
+      .delete(isLoggedIn, async (request, response) => {
             try {
-                  const document = await PlayListsModel.findOne({}).populate({
+                  const document = await PlayListsModel.findOne({
+                        user: request.user._id,
+                  }).populate({
                         path: "playLists",
                         populate: { path: "videos" },
                   });

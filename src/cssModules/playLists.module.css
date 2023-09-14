@@ -1,14 +1,31 @@
-.play-lists-options {
-      position: absolute;
+.play-lists-overlay {
+      position: fixed;
       top: 0;
       right: 0;
       left: 0;
       bottom: 0;
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+}
+.play-lists-options {
+      border-radius: 20px;
       background-color: white;
       display: flex;
       flex-direction: column;
+}
+
+.play-lists-overlay-close-button {
+      color: white;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 32px;
+      cursor: pointer;
 }
 
 .play-lists-heading {
@@ -33,40 +50,6 @@
 .play-lists {
       display: flex;
       flex-direction: column;
-      flex-grow: 1;
-}
-.play-list {
-      padding: 10px;
-      width: 100%;
-      text-align: start;
-      background-color: transparent;
-      display: flex;
-      justify-content: space-between;
-}
-
-.add-to-play-list-button,
-.remove-from-play-list-button {
-      margin: 2px;
-      background-color: slateblue;
-      columns: white;
-      padding-right: 3px;
-      padding-left: 3px;
-      padding-top: 1px;
-      width: 60px;
-      padding-bottom: 1px;
-      border-radius: 20px;
-      color: white;
-      cursor: pointer;
-}
-
-.remove-from-play-list-button {
-      background-color: red;
-}
-
-.save-and-close-buttons {
-      margin-top: auto;
-      display: flex;
-      justify-content: space-between;
 }
 
 .play-lists-close-button {
@@ -91,4 +74,9 @@
       border-radius: 20px;
       color: white;
       cursor: pointer;
+}
+.save-and-close-buttons {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
 }

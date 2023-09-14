@@ -5,9 +5,10 @@ const VideoModel = require("./models/videoModel");
 const channelModel = require("./models/channelModel");
 const mongoose = require("mongoose");
 
-const { homeRouter } = require("../backEnd/routes/home");
-const { watchLaterRouter } = require("../backEnd/routes/watchLater");
-const { playListsRouter } = require("../backEnd/routes/playLists");
+const { homeRouter } = require("./routes/home");
+const { watchLaterRouter } = require("./routes/watchLater");
+const { playListsRouter } = require("./routes/playLists");
+const { authenticationRouter } = require("./routes/authentication");
 
 mongoose
       .connect("mongodb://127.0.0.1:27017/techtotube")
@@ -26,6 +27,7 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use("/", authenticationRouter);
 app.use("/", homeRouter);
 app.use("/", watchLaterRouter);
 app.use("/", playListsRouter);

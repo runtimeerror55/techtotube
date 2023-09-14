@@ -1,3 +1,36 @@
+# ecommerce
+
+## Tech stack
+
+- Html
+- css
+- javascript
+- react
+- express
+- mongodb
+
+## Pages
+
+1. videos page
+2. play lists page
+3. video page
+4. watch later page
+5. login page
+6. register page
+
+## functionalities
+
+1. add video to watch later
+2. delete video from watch later
+3. create play list
+4. add video to a particular play list
+5. delete video from a particular play list
+6. filtering products using predefined tags
+7. loading state for all the functionalities
+8. error handling for all the functionalities (frontend and backEnd)
+9. notifications for all the functionalities
+10. authentication
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

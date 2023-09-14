@@ -1,15 +1,12 @@
 import { useLoaderData, Await } from "react-router-dom";
 import { Suspense } from "react";
-import styles from "../cssModules/awaitPLayListsPage.module.css";
-import { PlayListsPage } from "./playListsPage";
+import styles from "../../playListsPage/cssModules/awaitPLayListsPage.module.css";
+import { WatchLaterPage } from "./watchLaterPage";
 import { ColorRing } from "react-loader-spinner";
 import { colorRingOptions } from "../../../utilities/utilities";
 
-export const AwaitPlayListsPage = () => {
+export const AwaitWatchLaterPage = () => {
       const { loaderData } = useLoaderData();
-      if (loaderData.status === "error") {
-            return <div>{loaderData.message}</div>;
-      }
 
       return (
             <Suspense
@@ -20,7 +17,7 @@ export const AwaitPlayListsPage = () => {
                   }
             >
                   <Await resolve={loaderData}>
-                        <PlayListsPage></PlayListsPage>
+                        <WatchLaterPage></WatchLaterPage>
                   </Await>
             </Suspense>
       );

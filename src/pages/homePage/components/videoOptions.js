@@ -1,4 +1,4 @@
-import { useFetcher, useSearchParams } from "react-router-dom";
+import { useFetcher } from "react-router-dom";
 import styles from "../cssModules/videoOptions.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,12 +10,18 @@ import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { ColorRing } from "react-loader-spinner";
 import { colorRingOptions, toastOptions } from "../../../utilities/utilities";
+import { PlayLists } from "../../../components/playListsOverLay/playLists";
 
 export const VideoOptions = (props) => {
       const saveToPLayListFetcher = useFetcher();
       const addToWatchLaterFetcher = useFetcher();
 
       const [showLoader, setShowLoader] = useState(false);
+      const [showSaveToPlayListsLoader, setShowSaveToPlayListsLoader] =
+            useState(false);
+      const [showPlayListsOverlay, setShowPlayListsOverlay] = useState(false);
+
+      const [playListsData, setPlayListsData] = useState(null);
 
       const saveToPLayListFetcherStatus =
             saveToPLayListFetcher.data &&
@@ -48,16 +54,17 @@ export const VideoOptions = (props) => {
                         toast.error(data.loaderData.message, toastOptions);
                   } else {
                         toast.success(data.loaderData.message, toastOptions);
-                        props.setPlayLists(
+
+                        setPlayListsData(
                               saveToPLayListFetcher.data.loaderData.payload
                                     .playLists
                         );
-                        props.setShowVideoOptions(false);
+                        setShowPlayListsOverlay(true);
                   }
 
-                  setShowLoader(false);
+                  setShowSaveToPlayListsLoader(false);
             } else if (saveToPLayListFetcher.state !== "idle") {
-                  setShowLoader(true);
+                  setShowSaveToPlayListsLoader(true);
             }
       }, [saveToPLayListFetcher]);
 
@@ -71,46 +78,73 @@ export const VideoOptions = (props) => {
             );
       }
       return (
-            <div className={styles["video-options"]}>
-                  <saveToPLayListFetcher.Form action="/playlists">
-                        <button
-                              type="submit"
-                              className={styles["video-option"]}
-                        >
-                              <FontAwesomeIcon
-                                    className={styles["video-option-icon"]}
-                                    icon={faCirclePlay}
-                              />
-                              <span>save to play list</span>
-                        </button>
-                  </saveToPLayListFetcher.Form>
+            <>
+                  <div className={styles["video-options"]}>
+                        <saveToPLayListFetcher.Form action="/playlists">
+                              <button
+                                    type="submit"
+                                    className={styles["video-option"]}
+                              >
+                                    <FontAwesomeIcon
+                                          className={
+                                                styles["video-option-icon"]
+                                          }
+                                          icon={faCirclePlay}
+                                    />
+                                    <span>save to play list</span>
+                              </button>
+                        </saveToPLayListFetcher.Form>
 
-                  <addToWatchLaterFetcher.Form
-                        method="PUT"
-                        action={`/watchLater/${props.video._id}`}
-                  >
-                        <button
-                              type="submit"
-                              className={styles["video-option"]}
+                        <addToWatchLaterFetcher.Form
+                              method="PUT"
+                              action={`/watchLater/${props.video._id}`}
                         >
-                              <FontAwesomeIcon
-                                    className={styles["video-option-icon"]}
-                                    icon={faFutbol}
-                              />
-                              save to watch later
-                        </button>
-                  </addToWatchLaterFetcher.Form>
+                              <button
+                                    type="submit"
+                                    className={styles["video-option"]}
+                              >
+                                    <FontAwesomeIcon
+                                          className={
+                                                styles["video-option-icon"]
+                                          }
+                                          icon={faFutbol}
+                                    />
+                                    save to watch later
+                              </button>
+                        </addToWatchLaterFetcher.Form>
 
-                  <div className={styles["video-options-close-button"]}>
-                        {" "}
-                        <FontAwesomeIcon
-                              className={
-                                    styles["video-options-close-button-icon"]
-                              }
-                              icon={faXmark}
-                              onClick={props.videoOptiosCloseButtonHandler}
-                        />
+                        <div className={styles["video-options-close-button"]}>
+                              {" "}
+                              <FontAwesomeIcon
+                                    className={
+                                          styles[
+                                                "video-options-close-button-icon"
+                                          ]
+                                    }
+                                    icon={faXmark}
+                                    onClick={
+                                          props.videoOptiosCloseButtonHandler
+                                    }
+                              />
+                        </div>
                   </div>
-            </div>
+                  {showPlayListsOverlay ? (
+                        <PlayLists
+                              playLists={playListsData}
+                              setPlayLists={setPlayListsData}
+                              video={props.video}
+                              setShowPlayListsOverlay={setShowPlayListsOverlay}
+                        ></PlayLists>
+                  ) : (
+                        ""
+                  )}
+                  {showSaveToPlayListsLoader ? (
+                        <div className={styles["play-lists-loader"]}>
+                              <ColorRing {...colorRingOptions}></ColorRing>
+                        </div>
+                  ) : (
+                        ""
+                  )}
+            </>
       );
 };

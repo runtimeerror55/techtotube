@@ -1,10 +1,10 @@
 import { useFetcher } from "react-router-dom";
-import styles from "../cssModules/playLists.module.css";
+import styles from "../../cssModules/playList.module.css";
 import { Bars } from "react-loader-spinner";
 
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { toastOptions } from "../../../utilities/utilities";
+import { toastOptions } from "../../utilities/utilities";
 export const PlayList = ({ playList, video, setPlayLists }) => {
       const updatePlayListsFetcher = useFetcher();
 

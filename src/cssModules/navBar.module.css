@@ -37,3 +37,11 @@
       padding: 5px;
       outline-color: teal;
 }
+
+.logout-button {
+      background-color: transparent;
+      outline: none;
+      cursor: pointer;
+      font-size: inherit;
+      color: white;
+}

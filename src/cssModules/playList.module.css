@@ -1,0 +1,27 @@
+.play-list {
+      padding: 10px;
+      width: 100%;
+      text-align: start;
+      background-color: transparent;
+      display: flex;
+      justify-content: space-between;
+}
+
+.add-to-play-list-button,
+.remove-from-play-list-button {
+      margin: 2px;
+      background-color: slateblue;
+      columns: white;
+      padding-right: 3px;
+      padding-left: 3px;
+      padding-top: 1px;
+      width: 60px;
+      padding-bottom: 1px;
+      border-radius: 20px;
+      color: white;
+      cursor: pointer;
+}
+
+.remove-from-play-list-button {
+      background-color: red;
+}

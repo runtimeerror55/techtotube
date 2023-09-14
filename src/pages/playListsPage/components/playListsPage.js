@@ -16,10 +16,8 @@ import { PlayList } from "./playList";
 
 export const PlayListsPage = () => {
       const loaderData = useAsyncValue();
-      console.log(loaderData);
 
       const [showPlayListVideos, setShowPlayListVideos] = useState(null);
-
       const playListDropDownHandler = (event) => {
             event.stopPropagation();
             if (showPlayListVideos === event.currentTarget.id) {
@@ -28,21 +26,27 @@ export const PlayListsPage = () => {
                   setShowPlayListVideos(event.currentTarget.id);
             }
       };
-      return (
-            <main className={styles["main"]}>
-                  <h1>PLAYLISTS</h1>
-                  {loaderData.payload.playLists.map((playList) => {
-                        return (
-                              <PlayList
-                                    key={playList._id}
-                                    playList={playList}
-                                    playListDropDownHandler={
-                                          playListDropDownHandler
-                                    }
-                                    showPlayListVideos={showPlayListVideos}
-                              ></PlayList>
-                        );
-                  })}
-            </main>
-      );
+      if (loaderData.status === "error") {
+            return <div>{loaderData.message}</div>;
+      } else {
+            return (
+                  <main className={styles["main"]}>
+                        <h1>PLAYLISTS</h1>
+                        {loaderData.payload.playLists.map((playList) => {
+                              return (
+                                    <PlayList
+                                          key={playList._id}
+                                          playList={playList}
+                                          playListDropDownHandler={
+                                                playListDropDownHandler
+                                          }
+                                          showPlayListVideos={
+                                                showPlayListVideos
+                                          }
+                                    ></PlayList>
+                              );
+                        })}
+                  </main>
+            );
+      }
 };

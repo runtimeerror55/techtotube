@@ -6,6 +6,10 @@ const watchLaterSchema = mongoose.Schema({
                   ref: "videos",
             },
       ],
+      user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "users",
+      },
 });
 
 const watchLaterModel = mongoose.model("watchLater", watchLaterSchema);

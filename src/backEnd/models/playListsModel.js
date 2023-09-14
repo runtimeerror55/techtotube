@@ -11,6 +11,10 @@ const playListsSchema = mongoose.Schema({
                   ],
             },
       ],
+      user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "users",
+      },
 });
 
 const PlayListsModel = mongoose.model("playLists", playListsSchema);
