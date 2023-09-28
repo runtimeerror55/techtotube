@@ -10,7 +10,7 @@ export const playListActions = async ({ request, params }) => {
                         playList: formData.get("playList"),
                   };
                   const response = await fetch(
-                        "http://localhost:8080/playLists",
+                        "https://techtotube-backend.vercel.app/playLists",
                         {
                               method: "POST",
                               headers: {
@@ -25,7 +25,7 @@ export const playListActions = async ({ request, params }) => {
                   return data;
             } else if (request.method === "DELETE") {
                   const response = await fetch(
-                        `http://localhost:8080/playLists/${params.playListId}`,
+                        `https://techtotube-backend.vercel.app/playLists/${params.playListId}`,
                         {
                               method: "DELETE",
                               headers: {
@@ -45,7 +45,7 @@ export const playListVideoActions = async ({ request, params }) => {
       try {
             if (request.method === "PUT") {
                   const response = await fetch(
-                        `http://localhost:8080/playLists/${params.playListId}/${params.videoId}`,
+                        `https://techtotube-backend.vercel.app/playLists/${params.playListId}/${params.videoId}`,
                         {
                               method: "PUT",
                               headers: {
@@ -58,7 +58,7 @@ export const playListVideoActions = async ({ request, params }) => {
                   return data;
             } else if (request.method === "DELETE") {
                   const response = await fetch(
-                        `http://localhost:8080/playLists/${params.playListId}/${params.videoId}`,
+                        `https://techtotube-backend.vercel.app/playLists/${params.playListId}/${params.videoId}`,
                         {
                               method: "DELETE",
                               headers: {
@@ -80,7 +80,7 @@ export const addToWatchLater = async ({ request, params }) => {
                   console.log(params.videoId);
 
                   const response = await fetch(
-                        `http://localhost:8080/watchlater/${params.videoId}`,
+                        `https://techtotube-backend.vercel.app/watchlater/${params.videoId}`,
                         {
                               method: "PUT",
                               headers: {
@@ -92,7 +92,7 @@ export const addToWatchLater = async ({ request, params }) => {
                   return data;
             } else if (request.method === "DELETE") {
                   const response = await fetch(
-                        `http://localhost:8080/watchlater/${params.videoId}`,
+                        `https://techtotube-backend.vercel.app/watchlater/${params.videoId}`,
                         {
                               method: "DELETE",
                               headers: {
@@ -112,13 +112,16 @@ export const registerAction = async ({ request, params }) => {
       try {
             const formData = await request.formData();
             const body = Object.fromEntries(formData);
-            const response = await fetch("http://localhost:8080/register", {
-                  headers: {
-                        "Content-Type": "application/json",
-                  },
-                  method: "POST",
-                  body: JSON.stringify(body),
-            });
+            const response = await fetch(
+                  "https://techtotube-backend.vercel.app/register",
+                  {
+                        headers: {
+                              "Content-Type": "application/json",
+                        },
+                        method: "POST",
+                        body: JSON.stringify(body),
+                  }
+            );
             const data = await response.json();
             return data;
       } catch (error) {
@@ -130,13 +133,16 @@ export const loginAction = async ({ request, params }) => {
       try {
             const formData = await request.formData();
             const body = Object.fromEntries(formData);
-            const response = await fetch("http://localhost:8080/login", {
-                  headers: {
-                        "Content-Type": "application/json",
-                  },
-                  method: "POST",
-                  body: JSON.stringify(body),
-            });
+            const response = await fetch(
+                  "https://techtotube-backend.vercel.app/login",
+                  {
+                        headers: {
+                              "Content-Type": "application/json",
+                        },
+                        method: "POST",
+                        body: JSON.stringify(body),
+                  }
+            );
 
             const data = await response.json();
             return data;

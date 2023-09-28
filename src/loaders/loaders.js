@@ -1,5 +1,6 @@
 import { defer } from "react-router-dom";
 import { getToken } from "../utilities/utilities";
+const backEndUrl = "https://techtotube-backend.vercel.app/";
 export const homePageLoader = async ({ request }) => {
       return defer({
             loaderData: (async () => {
@@ -25,7 +26,7 @@ export const homePageLoader = async ({ request }) => {
                         );
                         console.log("homePageLoader", queryString);
                         const response = await fetch(
-                              `http://localhost:8080/${queryString}`
+                              `https://techtotube-backend.vercel.app/${queryString}`
                         );
                         const data = await response.json();
 
@@ -43,7 +44,7 @@ export const playListsLoader = async () => {
                   try {
                         console.log("loadersss");
                         const response = await fetch(
-                              "http://localhost:8080/playLists",
+                              "https://techtotube-backend.vercel.app/playLists",
                               {
                                     headers: {
                                           authorization: "Bearer " + getToken(),
@@ -65,7 +66,7 @@ export const watchLaterPageLoader = async () => {
             loaderData: (async () => {
                   try {
                         const response = await fetch(
-                              "http://localhost:8080/watchLater",
+                              "https://techtotube-backend.vercel.app/watchLater",
                               {
                                     headers: {
                                           authorization: "Bearer " + getToken(),
@@ -88,15 +89,17 @@ export const VideoPageLoader = async ({ request, params }) => {
                   try {
                         console.log("videoPageLoader");
                         let response = await fetch(
-                              `http://localhost:8080/videos/${params.videoId}`
+                              `https://techtotube-backend.vercel.app/videos/${params.videoId}`
                         );
                         const video = await response.json();
 
-                        response = await fetch(`http://localhost:8080`);
+                        response = await fetch(
+                              `https://techtotube-backend.vercel.app/`
+                        );
                         const moreVideos = await response.json();
 
                         response = await fetch(
-                              `http://localhost:8080/watchLater`,
+                              `https://techtotube-backend.vercel.app/watchLater`,
                               {
                                     headers: {
                                           authorization: "Bearer " + getToken(),

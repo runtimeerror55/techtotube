@@ -3,6 +3,7 @@ import styles from "../cssModules/videoPage.module.css";
 import { Video } from "./video";
 export const VideoPage = () => {
       const loaderData = useAsyncValue();
+      console.log(loaderData);
       const playingVideo = loaderData.payload.video.payload;
       const moreVideos = loaderData.payload.moreVideos.payload;
       const watchLaterVideos = loaderData.payload.watchLaterVideos.payload;
