@@ -4,7 +4,12 @@
 
 .filtering-form {
       display: flex;
-      justify-content: space-between;
+      scrollbar-width: none;
+      overflow-x: scroll;
+}
+
+.filtering-form::-webkit-scrollbar {
+      display: none;
 }
 
 .videos-filter-radio-input {
@@ -45,4 +50,8 @@ select {
       color: black;
       margin: 5px;
       border: 1px solid black;
+}
+
+.sort-filter {
+      margin-left: auto;
 }

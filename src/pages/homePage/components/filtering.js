@@ -19,51 +19,45 @@ export const Filtering = forwardRef((props, ref) => {
                         className={styles["filtering-form"]}
                         onChange={filterChangeHandler}
                   >
-                        <div>
-                              {radioFilterIds.map((id) => {
-                                    let labelClassName =
-                                          styles["radio-filter-label"];
-                                    if (id === currentActiveRadioId) {
-                                          labelClassName =
-                                                labelClassName +
-                                                " " +
-                                                styles["active-radio-filter"];
-                                    }
-                                    return (
-                                          <>
-                                                <input
-                                                      type="radio"
-                                                      id={id}
-                                                      name="category"
-                                                      className={
-                                                            styles[
-                                                                  "videos-filter-radio-input"
-                                                            ]
-                                                      }
-                                                      value={id}
-                                                ></input>
-                                                <label
-                                                      for={id}
-                                                      className={labelClassName}
-                                                >
-                                                      {id}
-                                                </label>
-                                          </>
-                                    );
-                              })}
-                        </div>
-                        <div>
-                              <select name="sort">
-                                    <option value="" disabled selected>
-                                          sortby
-                                    </option>
-                                    <option value="1">price low to high</option>
+                        {radioFilterIds.map((id) => {
+                              let labelClassName = styles["radio-filter-label"];
+                              if (id === currentActiveRadioId) {
+                                    labelClassName =
+                                          labelClassName +
+                                          " " +
+                                          styles["active-radio-filter"];
+                              }
+                              return (
+                                    <>
+                                          <input
+                                                type="radio"
+                                                id={id}
+                                                name="category"
+                                                className={
+                                                      styles[
+                                                            "videos-filter-radio-input"
+                                                      ]
+                                                }
+                                                value={id}
+                                          ></input>
+                                          <label
+                                                for={id}
+                                                className={labelClassName}
+                                          >
+                                                {id}
+                                          </label>
+                                    </>
+                              );
+                        })}
 
-                                    <option value="-1">
-                                          price high to low
-                                    </option>
-                              </select>
-                        </div>
+                        <select name="sort" className={styles["sort-filter"]}>
+                              <option value="" disabled selected>
+                                    sortby
+                              </option>
+                              <option value="1">price low to high</option>
+
+                              <option value="-1">price high to low</option>
+                        </select>
                   </Form>
             </section>
       );
