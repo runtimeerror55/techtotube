@@ -28,9 +28,7 @@ router.route("/playLists")
                               response.status(200).json({
                                     status: "success",
                                     message: "fetched successfully",
-                                    payload: {
-                                          playLists: playLists.playLists,
-                                    },
+                                    payload: playLists.playLists,
                               });
                         }, 1000);
                   }
