@@ -101,3 +101,10 @@
       height: 25px;
       justify-content: center;
 }
+
+@media (max-width: 800px) {
+      .play-list {
+            width: -webkit-fill-available;
+            margin: 15px;
+      }
+}
