@@ -49,7 +49,6 @@ export const Video = ({ playingVideo, watchLaterVideos }) => {
                         toast.success(data.loaderData.message, toastOptions);
                         setPlayListsData(
                               saveToPLayListFetcher.data.loaderData.payload
-                                    .playLists
                         );
                         setShowPlayListsOverlay(true);
                   }
