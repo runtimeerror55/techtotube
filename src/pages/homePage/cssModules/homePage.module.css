@@ -7,8 +7,9 @@
 }
 
 .videos {
-      display: flex;
+      display: grid;
       padding: 10px;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-column-gap: 20px;
+      grid-row-gap: 10px;
 }

@@ -43,17 +43,8 @@ export const NavBar = () => {
                                           TECHTOTUBE
                                     </span>
                               </section>
+
                               <section>
-                                    <input
-                                          type="text"
-                                          placeholder="search by title"
-                                          className={styles["search-bar"]}
-                                    ></input>
-                              </section>
-                              <section>
-                                    <Link to="/" className={styles["nav-link"]}>
-                                          HOME
-                                    </Link>
                                     {token ? (
                                           <button
                                                 onClick={logoutHandler}
