@@ -12,15 +12,17 @@
       margin-left: 10px;
       margin-right: 10px;
       background-color: transparent;
-      color: white;
       height: 100%;
       cursor: pointer;
       font-size: 25px;
+      color: white;
 }
+
 .logo {
       margin: 10px;
       font-size: 25px;
       font-weight: bold;
+      color: white;
 }
 
 .nav-link {
