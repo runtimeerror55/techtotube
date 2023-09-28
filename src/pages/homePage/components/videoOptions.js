@@ -57,7 +57,6 @@ export const VideoOptions = (props) => {
 
                         setPlayListsData(
                               saveToPLayListFetcher.data.loaderData.payload
-                                    .playLists
                         );
                         setShowPlayListsOverlay(true);
                   }
