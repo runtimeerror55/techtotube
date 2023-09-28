@@ -32,7 +32,7 @@ export const PlayListsPage = () => {
             return (
                   <main className={styles["main"]}>
                         <h1>PLAYLISTS</h1>
-                        {loaderData.payload.playLists.map((playList) => {
+                        {loaderData.payload.map((playList) => {
                               return (
                                     <PlayList
                                           key={playList._id}

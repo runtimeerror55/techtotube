@@ -19,7 +19,7 @@ router.route("/playLists")
                   if (!playLists) {
                         setTimeout(() => {
                               response.status(200).json({
-                                    status: "sucess",
+                                    status: "success",
                                     payload: [],
                               });
                         }, 1000);
