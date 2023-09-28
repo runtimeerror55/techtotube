@@ -18,9 +18,9 @@ router.route("/playLists")
 
                   if (!playLists) {
                         setTimeout(() => {
-                              response.status(500).json({
-                                    status: "error",
-                                    message: "no play lists found",
+                              response.status(200).json({
+                                    status: "sucess",
+                                    payload: [],
                               });
                         }, 1000);
                   } else {
