@@ -98,7 +98,7 @@ export const Video = ({ playingVideo, watchLaterVideos }) => {
                                                 styles["channel-subscribers"]
                                           }
                                     >
-                                          {playingVideo.channel.subscribers} m
+                                          {playingVideo.channel.subscribers}m
                                     </div>
                               </div>
                         </div>
@@ -181,7 +181,7 @@ export const Video = ({ playingVideo, watchLaterVideos }) => {
                                                       styles["video-like-icon"]
                                                 }
                                           />
-                                          playlists
+                                          save to play list
                                     </button>
                               </saveToPLayListFetcher.Form>
                         </div>
