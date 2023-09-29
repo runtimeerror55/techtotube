@@ -17,7 +17,7 @@
       border-top-right-radius: 20px;
 }
 .video-title {
-      font-size: 16px;
+      font-size: 14px;
       font-weight: bold;
       margin: 2px;
 }
@@ -26,6 +26,8 @@
       font-size: 13px;
       font-weight: 600;
       margin: 2px;
+      color: darkslateblue;
+      font-style: italic;
 }
 
 .video-options-open-button {

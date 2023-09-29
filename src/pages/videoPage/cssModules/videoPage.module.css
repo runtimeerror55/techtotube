@@ -39,7 +39,7 @@
       border-top-right-radius: 20px;
 }
 .video-title {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: bold;
       margin: 2px;
 }
@@ -48,6 +48,7 @@
       font-size: 13px;
       font-weight: 600;
       margin: 2px;
+      color: gray;
 }
 
 .delete-video-from-play-list-button {

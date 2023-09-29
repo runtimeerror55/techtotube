@@ -101,7 +101,6 @@ export const VideoPage = () => {
                                                                                           .subscribers
                                                                               }
                                                                               m
-                                                                              subscribers
                                                                         </div>
                                                                   </div>
                                                             </div>

@@ -40,7 +40,7 @@ export const Video = ({ video }) => {
                                     {video.channel.name}
                               </div>
                               <div className={styles["video-views"]}>
-                                    {video.channel.subscribers}
+                                    {video.channel.subscribers}m
                               </div>
                         </div>
                   </div>
