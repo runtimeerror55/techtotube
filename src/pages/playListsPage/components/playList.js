@@ -1,6 +1,6 @@
 import { Form, useAsyncValue, useFetcher } from "react-router-dom";
 import { useEffect, useState } from "react";
-import styles from "../cssModules/playListsPage.module.css";
+import styles from "../cssModules/playList.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
       faVideo,
@@ -11,7 +11,7 @@ import {
 import { toast } from "react-toastify";
 import { toastOptions } from "../../../utilities/utilities";
 import { Bars, ColorRing } from "react-loader-spinner";
-import { PVideo } from "./video";
+import { VideoOne } from "../../../components/videos/videoOne";
 import { colorRingOptions } from "../../../utilities/utilities";
 
 export const PlayList = ({
@@ -44,9 +44,9 @@ export const PlayList = ({
                               className={styles["play-list-logo"]}
                         />
                         <div className={styles["play-list-info"]}>
-                              <h3 className={styles["play-list-name"]}>
+                              <h2 className={styles["play-list-name"]}>
                                     {playList.name}
-                              </h3>
+                              </h2>
                               <span>{playList.videos.length} videos</span>
                         </div>
 
@@ -97,11 +97,11 @@ export const PlayList = ({
                         <div className={styles["play-list-videos"]}>
                               {playList.videos.map((video, index) => {
                                     return (
-                                          <PVideo
+                                          <VideoOne
                                                 video={video}
                                                 playList={playList}
                                                 deleteAction={`/playLists/${playList._id}/${video._id}`}
-                                          ></PVideo>
+                                          ></VideoOne>
                                     );
                               })}
                         </div>

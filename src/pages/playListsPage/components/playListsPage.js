@@ -31,7 +31,9 @@ export const PlayListsPage = () => {
       } else {
             return (
                   <main className={styles["main"]}>
-                        <h1>PLAYLISTS</h1>
+                        <h1 className={styles["playlists-heading"]}>
+                              PLAYLISTS
+                        </h1>
                         {loaderData.payload.map((playList) => {
                               return (
                                     <PlayList

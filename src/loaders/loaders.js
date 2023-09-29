@@ -1,7 +1,7 @@
 import { defer } from "react-router-dom";
 import { getToken } from "../utilities/utilities";
-const backEndUrl = "https://techtotube-backend.vercel.app/";
-// const backEndUrl = "http://localhost:8080/";
+let backEndUrl = "https://techtotube-backend.vercel.app/";
+// backEndUrl = "http://localhost:8080/";
 export const homePageLoader = async ({ request }) => {
       return defer({
             loaderData: (async () => {
