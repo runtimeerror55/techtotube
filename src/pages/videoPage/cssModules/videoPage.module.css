@@ -9,6 +9,8 @@
       flex-direction: column;
       margin-bottom: 20px;
       flex-grow: 1;
+      background-color: lavenderblush;
+      height: fit-content;
 }
 
 .more-videos-section {
@@ -22,6 +24,9 @@
 .video {
       width: 300px;
       margin-top: 20px;
+      background-color: lavenderblush;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
 }
 .video-items {
       display: flex;
