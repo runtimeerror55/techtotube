@@ -108,7 +108,6 @@ export const Video = ({ playingVideo, watchLaterVideos }) => {
                                           icon={faHeart}
                                           className={styles["video-like-icon"]}
                                     />
-                                    Like
                               </button>
                               {showAddToWatchLaterLoader ? (
                                     <Bars
@@ -165,7 +164,7 @@ export const Video = ({ playingVideo, watchLaterVideos }) => {
                                                             ]
                                                       }
                                                 />
-                                                save to watchLater
+                                                watchLater
                                           </button>
                                     </addToWatchLaterFetcher.Form>
                               )}
@@ -181,7 +180,7 @@ export const Video = ({ playingVideo, watchLaterVideos }) => {
                                                       styles["video-like-icon"]
                                                 }
                                           />
-                                          save to play list
+                                          playlists
                                     </button>
                               </saveToPLayListFetcher.Form>
                         </div>
