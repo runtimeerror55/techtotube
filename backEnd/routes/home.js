@@ -18,11 +18,9 @@ router.route("/").get(async (request, response) => {
                         message: "could not find any videos",
                   });
             } else {
-                  setTimeout(() => {
-                        response
-                              .status(200)
-                              .json({ status: "success", payload: videos });
-                  }, 1000);
+                  response
+                        .status(200)
+                        .json({ status: "success", payload: videos });
             }
       } catch (error) {
             response
