@@ -1,6 +1,10 @@
 .video-iframe {
       border-radius: 30px;
-      flex-grow: 1;
+      aspect-ratio: 16/8;
+}
+
+.video-title {
+      margin: 5px;
 }
 
 .video-info-and-options {

@@ -1,4 +1,4 @@
-import { useAsyncValue } from "react-router-dom";
+import { useAsyncValue, Link } from "react-router-dom";
 import styles from "../cssModules/videoPage.module.css";
 import { Video } from "./video";
 export const VideoPage = () => {
@@ -18,93 +18,98 @@ export const VideoPage = () => {
                               ></Video>
                         </section>
                         <section className={styles["more-videos-section"]}>
-                              <h3>More videos</h3>
-                              {moreVideos.map((video) => {
-                                    return (
-                                          <>
-                                                <div
-                                                      className={
-                                                            styles["video"]
-                                                      }
-                                                >
-                                                      <img
-                                                            src={
-                                                                  video.thumbnail
-                                                            }
-                                                            alt="dave 2d"
-                                                            className={
-                                                                  styles[
-                                                                        "video-thumbnail"
-                                                                  ]
-                                                            }
-                                                      ></img>
+                              <h2>More videos</h2>
+                              <div className={styles["more-videos"]}>
+                                    {moreVideos.map((video) => {
+                                          return (
+                                                <>
                                                       <div
                                                             className={
                                                                   styles[
-                                                                        "video-items"
+                                                                        "video"
                                                                   ]
                                                             }
                                                       >
                                                             <img
+                                                                  src={
+                                                                        video.thumbnail
+                                                                  }
+                                                                  alt="dave 2d"
                                                                   className={
                                                                         styles[
-                                                                              "channel-image"
+                                                                              "video-thumbnail"
                                                                         ]
                                                                   }
-                                                                  src={
-                                                                        video
-                                                                              .channel
-                                                                              .profilePicture
-                                                                  }
-                                                                  alt="a"
                                                             ></img>
-                                                            <div>
-                                                                  <div
+                                                            <div
+                                                                  className={
+                                                                        styles[
+                                                                              "video-items"
+                                                                        ]
+                                                                  }
+                                                            >
+                                                                  <img
                                                                         className={
                                                                               styles[
-                                                                                    "video-title"
+                                                                                    "channel-image"
                                                                               ]
                                                                         }
-                                                                  >
-                                                                        {
-                                                                              video.title
-                                                                        }
-                                                                  </div>
-                                                                  <div
-                                                                        className={
-                                                                              styles[
-                                                                                    "video-channel"
-                                                                              ]
-                                                                        }
-                                                                  >
-                                                                        {
+                                                                        src={
                                                                               video
                                                                                     .channel
-                                                                                    .name
-                                                                                    .name
+                                                                                    .profilePicture
                                                                         }
-                                                                  </div>
-                                                                  <div
-                                                                        className={
-                                                                              styles[
-                                                                                    "video-views"
-                                                                              ]
-                                                                        }
-                                                                  >
-                                                                        {
-                                                                              video
-                                                                                    .channel
-                                                                                    .subscribers
-                                                                        }
-                                                                        m
-                                                                        subscribers
+                                                                        alt="a"
+                                                                  ></img>
+                                                                  <div>
+                                                                        <Link
+                                                                              to={`/videos/${video._id}`}
+                                                                              className={
+                                                                                    styles[
+                                                                                          "video-title"
+                                                                                    ]
+                                                                              }
+                                                                        >
+                                                                              {
+                                                                                    video.title
+                                                                              }
+                                                                        </Link>
+                                                                        <div
+                                                                              className={
+                                                                                    styles[
+                                                                                          "video-channel"
+                                                                                    ]
+                                                                              }
+                                                                        >
+                                                                              {
+                                                                                    video
+                                                                                          .channel
+                                                                                          .name
+                                                                                          .name
+                                                                              }
+                                                                        </div>
+                                                                        <div
+                                                                              className={
+                                                                                    styles[
+                                                                                          "video-views"
+                                                                                    ]
+                                                                              }
+                                                                        >
+                                                                              {
+                                                                                    video
+                                                                                          .channel
+                                                                                          .subscribers
+                                                                              }
+                                                                              m
+                                                                              subscribers
+                                                                        </div>
                                                                   </div>
                                                             </div>
                                                       </div>
-                                                </div>
-                                          </>
-                                    );
-                              })}
+                                                </>
+                                          );
+                                    })}
+                              </div>
                         </section>
                   </main>
             </>

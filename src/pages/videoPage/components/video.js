@@ -79,7 +79,9 @@ export const Video = ({ playingVideo, watchLaterVideos }) => {
                         title="hello"
                         src={`https://www.youtube.com/embed/${playingVideo.youtubeId}`}
                   ></iframe>
-                  <h2>{playingVideo.title}</h2>
+                  <h3 className={styles["video-title"]}>
+                        {playingVideo.title}
+                  </h3>
                   <div className={styles["video-info-and-options"]}>
                         <div className={styles["channel-info"]}>
                               <img
