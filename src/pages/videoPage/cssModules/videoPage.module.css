@@ -21,7 +21,6 @@
 
 .video {
       width: 300px;
-      margin: 10px;
       margin-top: 20px;
 }
 .video-items {
@@ -60,9 +59,13 @@
 @media (max-width: 1000px) {
       .main {
             flex-direction: column;
+            padding: 5px;
       }
       .video {
             width: 100%;
+      }
+      .more-videos-section {
+            margin-left: 0px;
       }
       .more-videos {
             display: grid;
