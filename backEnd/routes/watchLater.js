@@ -14,12 +14,10 @@ router.route("/watchLater").get(isLoggedIn, async (request, response) => {
                         message: "not found any videos",
                   });
             } else {
-                  setTimeout(() => {
-                        response.status(200).json({
-                              status: "success",
-                              payload: watchLater.videos,
-                        });
-                  }, 1000);
+                  response.status(200).json({
+                        status: "success",
+                        payload: watchLater.videos,
+                  });
             }
       } catch (error) {
             response
@@ -41,33 +39,29 @@ router.route("/watchLater/:videoId")
                               user: request.user._id,
                         });
                         await newWatchLater.save();
-                        setTimeout(() => {
-                              response.status(200).json({
-                                    status: "success",
-                                    message: "added to watch later",
-                              });
-                        }, 1000);
+
+                        response.status(200).json({
+                              status: "success",
+                              message: "added to watch later",
+                        });
                   } else {
                         const video = watchlater.videos.find((video) => {
                               console.log(video);
                               return video._id.toString() === videoId;
                         });
                         if (video) {
-                              setTimeout(() => {
-                                    response.status(500).json({
-                                          status: "error",
-                                          message: "video is already present in watch later",
-                                    });
-                              }, 1000);
+                              response.status(500).json({
+                                    status: "error",
+                                    message: "video is already present in watch later",
+                              });
                         } else {
                               watchlater.videos.push(videoId);
                               await watchlater.save();
-                              setTimeout(() => {
-                                    response.status(200).json({
-                                          status: "success",
-                                          message: "added to watch later",
-                                    });
-                              }, 1000);
+
+                              response.status(200).json({
+                                    status: "success",
+                                    message: "added to watch later",
+                              });
                         }
                   }
             } catch (error) {
@@ -88,12 +82,10 @@ router.route("/watchLater/:videoId")
                   document.videos.splice(videoIndex, 1);
                   await document.save();
 
-                  setTimeout(() => {
-                        response.status(200).json({
-                              status: "success",
-                              message: "deleted from watch later",
-                        });
-                  }, 1000);
+                  response.status(200).json({
+                        status: "success",
+                        message: "deleted from watch later",
+                  });
             } catch (error) {
                   response
                         .status(500)
