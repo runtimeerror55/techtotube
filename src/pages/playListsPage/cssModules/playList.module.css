@@ -37,11 +37,11 @@
 .play-list-videos {
       display: grid;
       padding: 10px;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, 250px);
       grid-column-gap: 20px;
-      grid-row-gap: 10px;
+      grid-row-gap: 20px;
       width: 70%;
-      overflow-y: scroll;
+      max-width: 70%;
 }
 .play-list-videos::-webkit-scrollbar {
       height: 5px;
@@ -109,5 +109,13 @@
       }
       .play-list-name {
             font-size: 1em;
+      }
+}
+
+@media (max-width: 1000px) {
+      .play-list-videos {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            width: 100%;
+            max-width: 100%;
       }
 }

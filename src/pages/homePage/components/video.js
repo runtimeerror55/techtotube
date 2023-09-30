@@ -11,7 +11,6 @@ import { ColorRing } from "react-loader-spinner";
 
 export const Video = ({ video }) => {
       const [showVideoOptions, setShowVideoOptions] = useState(false);
-      const watchLaterVideosFetcher = useFetcher();
 
       const videoOptiosOpenButtonHandler = () => {
             setShowVideoOptions(true);

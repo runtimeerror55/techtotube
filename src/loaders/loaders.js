@@ -80,6 +80,29 @@ export const watchLaterPageLoader = async () => {
       });
 };
 
+export const watchHistoryPageLoader = async () => {
+      console.log("watchHistoryPageLoader");
+      return defer({
+            loaderData: (async () => {
+                  try {
+                        const response = await fetch(
+                              `${backEndUrl}watchHistory`,
+                              {
+                                    headers: {
+                                          authorization: "Bearer " + getToken(),
+                                    },
+                              }
+                        );
+                        const videos = await response.json();
+
+                        return videos;
+                  } catch (error) {
+                        return { status: "error", message: error.message };
+                  }
+            })(),
+      });
+};
+
 export const VideoPageLoader = async ({ request, params }) => {
       return defer({
             loaderData: (async () => {

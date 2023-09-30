@@ -40,14 +40,6 @@ export const LoginPage = () => {
                               className={styles["login-form"]}
                         >
                               <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder="email"
-                                    required
-                                    className={styles["user-details-input"]}
-                              ></input>
-                              <input
                                     type="text"
                                     id="name"
                                     name="name"

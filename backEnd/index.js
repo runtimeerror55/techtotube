@@ -9,6 +9,7 @@ const { homeRouter } = require("./routes/home");
 const { watchLaterRouter } = require("./routes/watchLater");
 const { playListsRouter } = require("./routes/playLists");
 const { authenticationRouter } = require("./routes/authentication");
+const { watchHistoryRouter } = require("./routes/watchHistory");
 
 mongoose
       .connect(
@@ -32,6 +33,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", authenticationRouter);
 app.use("/", homeRouter);
 app.use("/", watchLaterRouter);
+app.use("/", watchHistoryRouter);
 app.use("/", playListsRouter);
 
 app.get("/videos/:videoId", async (request, response) => {

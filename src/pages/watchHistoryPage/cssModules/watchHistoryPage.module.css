@@ -5,7 +5,7 @@
       flex-direction: column;
 }
 
-.watch-later-videos {
+.watch-history-videos {
       display: grid;
       padding: 10px;
       grid-template-columns: repeat(auto-fit, 250px);

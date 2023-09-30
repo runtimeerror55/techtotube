@@ -1,14 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const watchLaterModel = require("../models/watchLaterModel");
+const watchHistoryModel = require("../models/watchHistoryModel");
 const { isLoggedIn } = require("../middleware");
 
-router.route("/watchLater").get(isLoggedIn, async (request, response) => {
+router.route("/watchHistory").get(isLoggedIn, async (request, response) => {
       try {
-            const watchLater = await watchLaterModel
+            const watchHistory = await watchHistoryModel
                   .findOne({ user: request.user._id })
                   .populate({ path: "videos", populate: { path: "channel" } });
-            if (!watchLater) {
+
+            if (!watchHistory) {
                   response.status(200).json({
                         status: "success",
                         payload: [],
@@ -16,7 +17,7 @@ router.route("/watchLater").get(isLoggedIn, async (request, response) => {
             } else {
                   response.status(200).json({
                         status: "success",
-                        payload: watchLater.videos,
+                        payload: watchHistory.videos,
                   });
             }
       } catch (error) {
@@ -26,37 +27,37 @@ router.route("/watchLater").get(isLoggedIn, async (request, response) => {
       }
 });
 
-router.route("/watchLater/:videoId")
+router.route("/watchHistory/:videoId")
       .put(isLoggedIn, async (request, response) => {
             try {
                   const videoId = request.params.videoId;
-                  const watchlater = await watchLaterModel.findOne({
+                  const watchHistory = await watchHistoryModel.findOne({
                         user: request.user._id,
                   });
-                  if (!watchlater) {
-                        const newWatchLater = new watchLaterModel({
+                  if (!watchHistory) {
+                        const newWatchHistory = new watchHistoryModel({
                               videos: [videoId],
                               user: request.user._id,
                         });
-                        await newWatchLater.save();
+                        await newWatchHistory.save();
 
                         response.status(200).json({
                               status: "success",
-                              message: "added to watch history",
+                              message: "added to watch later",
                         });
                   } else {
-                        const video = watchlater.videos.find((video) => {
+                        const video = watchHistory.videos.find((video) => {
                               console.log(video);
                               return video._id.toString() === videoId;
                         });
                         if (video) {
                               response.status(500).json({
                                     status: "error",
-                                    message: "video is already present in watch history",
+                                    message: "video is already present in watch later",
                               });
                         } else {
-                              watchlater.videos.push(videoId);
-                              await watchlater.save();
+                              watchHistory.videos.push(videoId);
+                              await watchHistory.save();
 
                               response.status(200).json({
                                     status: "success",
@@ -72,7 +73,7 @@ router.route("/watchLater/:videoId")
       })
       .delete(isLoggedIn, async (request, response) => {
             try {
-                  const document = await watchLaterModel
+                  const document = await watchHistoryModel
                         .findOne({ user: request.user._id })
                         .populate("videos");
 
@@ -93,4 +94,4 @@ router.route("/watchLater/:videoId")
             }
       });
 
-module.exports.watchLaterRouter = router;
+module.exports.watchHistoryRouter = router;

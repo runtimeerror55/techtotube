@@ -78,7 +78,7 @@ export const addToWatchLater = async ({ request, params }) => {
                   console.log(params.videoId);
 
                   const response = await fetch(
-                        `${backEndUrl}watchlater/${params.videoId}`,
+                        `${backEndUrl}watchLater/${params.videoId}`,
                         {
                               method: "PUT",
                               headers: {
@@ -90,7 +90,41 @@ export const addToWatchLater = async ({ request, params }) => {
                   return data;
             } else if (request.method === "DELETE") {
                   const response = await fetch(
-                        `${backEndUrl}watchlater/${params.videoId}`,
+                        `${backEndUrl}watchLater/${params.videoId}`,
+                        {
+                              method: "DELETE",
+                              headers: {
+                                    authorization: "Bearer " + getToken(),
+                              },
+                        }
+                  );
+                  const data = await response.json();
+                  return data;
+            }
+      } catch (error) {
+            return { status: "error", message: error.message };
+      }
+};
+
+export const addToWatchHistory = async ({ request, params }) => {
+      try {
+            if (request.method === "PUT") {
+                  console.log(params.videoId);
+
+                  const response = await fetch(
+                        `${backEndUrl}watchHistory/${params.videoId}`,
+                        {
+                              method: "PUT",
+                              headers: {
+                                    authorization: "Bearer " + getToken(),
+                              },
+                        }
+                  );
+                  const data = await response.json();
+                  return data;
+            } else if (request.method === "DELETE") {
+                  const response = await fetch(
+                        `${backEndUrl}watchHistory/${params.videoId}`,
                         {
                               method: "DELETE",
                               headers: {

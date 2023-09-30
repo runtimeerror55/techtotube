@@ -1,6 +1,7 @@
-import { useAsyncValue, Link } from "react-router-dom";
+import { useAsyncValue, Link, useFetcher } from "react-router-dom";
 import styles from "../cssModules/videoPage.module.css";
 import { Video } from "./video";
+import { useEffect } from "react";
 export const VideoPage = () => {
       const loaderData = useAsyncValue();
       console.log(loaderData);
@@ -8,6 +9,14 @@ export const VideoPage = () => {
       const moreVideos = loaderData.payload.moreVideos.payload;
       const watchLaterVideos = loaderData.payload.watchLaterVideos.payload;
 
+      const watchHistoryFetcher = useFetcher();
+      console.log(watchHistoryFetcher.state, watchHistoryFetcher.data);
+      useEffect(() => {
+            watchHistoryFetcher.submit(null, {
+                  method: "PUT",
+                  action: `/watchHistory/${playingVideo._id}`,
+            });
+      }, []);
       return (
             <>
                   <main className={styles["main"]}>

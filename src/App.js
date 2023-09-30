@@ -6,6 +6,7 @@ import {
       playListsLoader,
       watchLaterPageLoader,
       VideoPageLoader,
+      watchHistoryPageLoader,
 } from "./loaders/loaders";
 import {
       addToWatchLater,
@@ -13,10 +14,12 @@ import {
       playListVideoActions,
       loginAction,
       registerAction,
+      addToWatchHistory,
 } from "./actions/actions";
 import { NavBar } from "./components/navBar/navBar";
 import { AwaitPlayListsPage } from "./pages/playListsPage/components/awaitPlayListsPage";
 import { AwaitWatchLaterPage } from "./pages/watchLaterPage/components/awaitWachLaterPage";
+import { AwaitWatchHistoryPage } from "./pages/watchHistoryPage/components/awaitWachHistoryPage";
 import { AwaitVideoPage } from "./pages/videoPage/components/awaitVideoPage";
 import { AuthProvider } from "./context/authentication";
 import { LoginPage } from "./pages/loginPage/components/loginPage";
@@ -37,7 +40,7 @@ const router = createBrowserRouter([
                         loader: playListsLoader,
                         action: playListActions,
                         shouldRevalidate: ({ formAction }) => {
-                              if (formAction.includes("/watchLater")) {
+                              if (formAction?.includes("/watchLater")) {
                                     return false;
                               }
                               return true;
@@ -47,6 +50,13 @@ const router = createBrowserRouter([
                         path: "watchLater",
                         element: <AwaitWatchLaterPage></AwaitWatchLaterPage>,
                         loader: watchLaterPageLoader,
+                  },
+                  {
+                        path: "watchHistory",
+                        element: (
+                              <AwaitWatchHistoryPage></AwaitWatchHistoryPage>
+                        ),
+                        loader: watchHistoryPageLoader,
                   },
                   {
                         path: "videos/:videoId",
@@ -62,7 +72,10 @@ const router = createBrowserRouter([
             path: "/watchLater/:videoId",
             action: addToWatchLater,
       },
-
+      {
+            path: "/watchHistory/:videoId",
+            action: addToWatchHistory,
+      },
       {
             path: "/playLists/:playListId/:videoId",
             action: playListVideoActions,

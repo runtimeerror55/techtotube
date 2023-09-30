@@ -1,21 +1,21 @@
 import { useAsyncValue } from "react-router-dom";
-import styles from "../cssModules/watchLaterPage.module.css";
+import styles from "../cssModules/watchHistoryPage.module.css";
 import { VideoOne } from "../../../components/videos/videoOne";
 
-export const WatchLaterPage = () => {
+export const WatchHistoryPage = () => {
       const loaderData = useAsyncValue();
       if (loaderData.status === "error") {
             return <div>{loaderData.message}</div>;
       } else {
             return (
                   <main className={styles["main"]}>
-                        <h1>Watch Later</h1>
-                        <div className={styles["watch-later-videos"]}>
+                        <h1>Watch History</h1>
+                        <div className={styles["watch-history-videos"]}>
                               {loaderData.payload.map((video, index) => {
                                     return (
                                           <VideoOne
                                                 video={video}
-                                                deleteAction={`/watchLater/${video._id}`}
+                                                deleteAction={`/watchHistory/${video._id}`}
                                           ></VideoOne>
                                     );
                               })}

@@ -13,23 +13,23 @@
       width: 100vw;
       align-items: center;
       min-height: 100vh;
-      background-color: #1a866b;
 }
 .main {
       display: flex;
       align-items: center;
       justify-content: center;
       flex-grow: 1;
+      width: 100%;
 }
 
 .register-form {
-      background-color: #5fdc72;
+      background-color: #1a866b;
       border-radius: 25px;
       display: flex;
       flex-direction: column;
-      width: 400px;
+      width: 90%;
       height: 400px;
-
+      max-width: 400px;
       justify-content: space-around;
       color: white;
       align-items: center;
@@ -40,16 +40,17 @@
 }
 
 .user-details-input {
-      background-color: #1a866b;
+      background-color: darkslategray;
       color: white;
       width: 70%;
       border-radius: 20px;
+      padding-left: 10px;
 }
 ::placeholder {
       color: white;
 }
 .register-button {
-      background-color: #1a866b;
+      background-color: darkslategray;
       padding-left: 10px;
       padding-right: 10px;
       cursor: pointer;

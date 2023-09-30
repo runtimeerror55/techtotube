@@ -38,7 +38,7 @@ export const VideoOptions = (props) => {
 
                   if (data.status === "success") {
                         toast.success(data.message, toastOptions);
-                        // props.videoOptiosCloseButtonHandler();
+                        props.videoOptiosCloseButtonHandler();
                   } else {
                         toast.error(data.message, toastOptions);
                   }
@@ -102,15 +102,6 @@ export const VideoOptions = (props) => {
             return video._id === props.video._id;
       });
 
-      if (showLoader) {
-            return (
-                  <div className={styles["video-options"]}>
-                        <div className={styles["loader"]}>
-                              <ColorRing {...colorRingOptions}></ColorRing>
-                        </div>
-                  </div>
-            );
-      }
       return (
             <>
                   <div className={styles["video-options"]}>
@@ -185,6 +176,16 @@ export const VideoOptions = (props) => {
                               />
                         </div>
                   </div>
+
+                  {showLoader ? (
+                        <div className={styles["video-options"]}>
+                              <div className={styles["loader"]}>
+                                    <ColorRing
+                                          {...colorRingOptions}
+                                    ></ColorRing>
+                              </div>
+                        </div>
+                  ) : null}
                   {showPlayListsOverlay ? (
                         <PlayLists
                               playLists={playListsData}
