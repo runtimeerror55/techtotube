@@ -1,5 +1,6 @@
 .video-iframe {
-      border-radius: 30px;
+      border-top-right-radius: 30px;
+      border-top-left-radius: 30px;
       aspect-ratio: 16/8;
 }
 

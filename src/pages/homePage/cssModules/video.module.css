@@ -4,6 +4,18 @@
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
 }
+
+.loader {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+}
 .video-items {
       display: flex;
 }

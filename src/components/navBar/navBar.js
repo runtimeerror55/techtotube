@@ -24,69 +24,55 @@ export const NavBar = () => {
       };
       return (
             <>
-                  <div className={styles["page"]}>
-                        <ToastContainer></ToastContainer>
-                        <nav className={styles["nav"]}>
-                              <section>
+                  <ToastContainer></ToastContainer>
+                  <nav className={styles["nav"]}>
+                        <section>
+                              <button
+                                    className={styles["side-bar-open-button"]}
+                                    onClick={SideBarOpenButtonClickHandler}
+                              >
+                                    <FontAwesomeIcon icon={faBars} />
+                              </button>
+
+                              <span className={styles["logo"]}>TECHTOTUBE</span>
+                        </section>
+
+                        <section>
+                              {token ? (
                                     <button
-                                          className={
-                                                styles["side-bar-open-button"]
-                                          }
-                                          onClick={
-                                                SideBarOpenButtonClickHandler
-                                          }
+                                          onClick={logoutHandler}
+                                          className={styles["logout-button"]}
                                     >
-                                          <FontAwesomeIcon icon={faBars} />
+                                          LOGOUT
                                     </button>
-
-                                    <span className={styles["logo"]}>
-                                          TECHTOTUBE
-                                    </span>
-                              </section>
-
-                              <section>
-                                    {token ? (
-                                          <button
-                                                onClick={logoutHandler}
-                                                className={
-                                                      styles["logout-button"]
-                                                }
+                              ) : (
+                                    <>
+                                          <Link
+                                                to="/login"
+                                                className={styles["nav-link"]}
                                           >
-                                                LOGOUT
-                                          </button>
-                                    ) : (
-                                          <>
-                                                <Link
-                                                      to="/login"
-                                                      className={
-                                                            styles["nav-link"]
-                                                      }
-                                                >
-                                                      LOGIN
-                                                </Link>
-                                                <Link
-                                                      to="/register"
-                                                      className={
-                                                            styles["nav-link"]
-                                                      }
-                                                >
-                                                      REGISTER
-                                                </Link>
-                                          </>
-                                    )}
-                              </section>
-                        </nav>
-                        {showSideBar ? (
-                              <aside>
-                                    <SideBar
-                                          setShowSideBar={setShowSideBar}
-                                    ></SideBar>
-                              </aside>
-                        ) : (
-                              ""
-                        )}
-                        <Outlet></Outlet>
-                  </div>
+                                                LOGIN
+                                          </Link>
+                                          <Link
+                                                to="/register"
+                                                className={styles["nav-link"]}
+                                          >
+                                                REGISTER
+                                          </Link>
+                                    </>
+                              )}
+                        </section>
+                  </nav>
+                  {showSideBar ? (
+                        <aside>
+                              <SideBar
+                                    setShowSideBar={setShowSideBar}
+                              ></SideBar>
+                        </aside>
+                  ) : (
+                        ""
+                  )}
+                  <Outlet></Outlet>
             </>
       );
 };

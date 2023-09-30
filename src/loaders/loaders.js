@@ -25,7 +25,7 @@ export const homePageLoader = async ({ request }) => {
                               },
                               "?"
                         );
-                        console.log("homePageLoader", queryString);
+
                         const response = await fetch(
                               `${backEndUrl}${queryString}`
                         );
@@ -43,7 +43,6 @@ export const playListsLoader = async () => {
       return defer({
             loaderData: (async () => {
                   try {
-                        console.log("loadersss");
                         const response = await fetch(`${backEndUrl}playLists`, {
                               headers: {
                                     authorization: "Bearer " + getToken(),
@@ -101,7 +100,6 @@ export const VideoPageLoader = async ({ request, params }) => {
                         });
                         const watchLaterVideos = await response.json();
 
-                        console.log(video, moreVideos, watchLaterVideos);
                         return {
                               status: "success",
                               payload: { video, moreVideos, watchLaterVideos },

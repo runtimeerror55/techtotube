@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFetcher, Link } from "react-router-dom";
 import styles from "../cssModules/video.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFutbol } from "@fortawesome/free-solid-svg-icons";
 import { VideoOptions } from "./videoOptions";
 import { PlayLists } from "../../../components/playListsOverLay/playLists";
+import { toastOptions, colorRingOptions } from "../../../utilities/utilities";
+import { toast } from "react-toastify";
+import { ColorRing } from "react-loader-spinner";
 
 export const Video = ({ video }) => {
       const [showVideoOptions, setShowVideoOptions] = useState(false);
+      const watchLaterVideosFetcher = useFetcher();
 
       const videoOptiosOpenButtonHandler = () => {
             setShowVideoOptions(true);
@@ -44,13 +48,13 @@ export const Video = ({ video }) => {
                               </div>
                         </div>
                   </div>
-                  <div
+
+                  <button
                         className={styles["video-options-open-button"]}
                         onClick={videoOptiosOpenButtonHandler}
                   >
                         <FontAwesomeIcon icon={faFutbol} />
-                  </div>
-
+                  </button>
                   {showVideoOptions ? (
                         <VideoOptions
                               video={video}
@@ -59,9 +63,7 @@ export const Video = ({ video }) => {
                               }
                               setShowVideoOptions={setShowVideoOptions}
                         ></VideoOptions>
-                  ) : (
-                        ""
-                  )}
+                  ) : null}
             </div>
       );
 };

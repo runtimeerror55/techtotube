@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
       faCirclePlay,
       faFutbol,
+      faClock,
       faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
@@ -34,9 +35,10 @@ export const VideoOptions = (props) => {
       useEffect(() => {
             if (addToWatchLaterFetcherStatus) {
                   const data = addToWatchLaterFetcher.data;
-                  console.log(data);
+
                   if (data.status === "success") {
                         toast.success(data.message, toastOptions);
+                        // props.videoOptiosCloseButtonHandler();
                   } else {
                         toast.error(data.message, toastOptions);
                   }
@@ -50,7 +52,6 @@ export const VideoOptions = (props) => {
             if (saveToPLayListFetcherStatus) {
                   const data = saveToPLayListFetcher.data;
                   if (data.loaderData.status === "error") {
-                        console.log("error");
                         toast.error(data.loaderData.message, toastOptions);
                   } else {
                         toast.success(data.loaderData.message, toastOptions);
@@ -66,6 +67,40 @@ export const VideoOptions = (props) => {
                   setShowSaveToPlayListsLoader(true);
             }
       }, [saveToPLayListFetcher]);
+      const watchLaterVideosFetcher = useFetcher();
+      const watchLaterVideosFetcherStatus =
+            watchLaterVideosFetcher.data &&
+            watchLaterVideosFetcher.state === "idle";
+
+      const [watchLaterVideos, setWatchLaterVideos] = useState([]);
+
+      useEffect(() => {
+            console.log(watchLaterVideosFetcher);
+            if (watchLaterVideosFetcherStatus) {
+                  const data = watchLaterVideosFetcher.data.loaderData;
+
+                  if (data.status === "success") {
+                        setWatchLaterVideos(data.payload);
+                        toast.success(data.message, toastOptions);
+                  } else {
+                        toast.error(data.message, toastOptions);
+                  }
+                  setShowLoader(false);
+            } else if (watchLaterVideosFetcher.state !== "idle") {
+                  setShowLoader(true);
+            }
+      }, [watchLaterVideosFetcher]);
+
+      useEffect(() => {
+            watchLaterVideosFetcher.submit(null, {
+                  action: "/watchLater",
+                  method: "GET",
+            });
+      }, []);
+      let isVideoPresentInWatchLaterVideos = false;
+      isVideoPresentInWatchLaterVideos = watchLaterVideos.some((video) => {
+            return video._id === props.video._id;
+      });
 
       if (showLoader) {
             return (
@@ -94,26 +129,49 @@ export const VideoOptions = (props) => {
                               </button>
                         </saveToPLayListFetcher.Form>
 
-                        <addToWatchLaterFetcher.Form
-                              method="PUT"
-                              action={`/watchLater/${props.video._id}`}
-                        >
-                              <button
-                                    type="submit"
-                                    className={styles["video-option"]}
+                        {isVideoPresentInWatchLaterVideos ? (
+                              <addToWatchLaterFetcher.Form
+                                    method="DELETE"
+                                    action={`/watchLater/${props.video._id}`}
                               >
-                                    <FontAwesomeIcon
-                                          className={
-                                                styles["video-option-icon"]
-                                          }
-                                          icon={faFutbol}
-                                    />
-                                    save to watch later
-                              </button>
-                        </addToWatchLaterFetcher.Form>
+                                    <button
+                                          type="submit"
+                                          className={styles["video-option"]}
+                                    >
+                                          <FontAwesomeIcon
+                                                className={
+                                                      styles[
+                                                            "video-option-icon"
+                                                      ]
+                                                }
+                                                icon={faClock}
+                                          />
+                                          remove from watch later
+                                    </button>
+                              </addToWatchLaterFetcher.Form>
+                        ) : (
+                              <addToWatchLaterFetcher.Form
+                                    method="PUT"
+                                    action={`/watchLater/${props.video._id}`}
+                              >
+                                    <button
+                                          type="submit"
+                                          className={styles["video-option"]}
+                                    >
+                                          <FontAwesomeIcon
+                                                className={
+                                                      styles[
+                                                            "video-option-icon"
+                                                      ]
+                                                }
+                                                icon={faClock}
+                                          />
+                                          save to watch later
+                                    </button>
+                              </addToWatchLaterFetcher.Form>
+                        )}
 
                         <div className={styles["video-options-close-button"]}>
-                              {" "}
                               <FontAwesomeIcon
                                     className={
                                           styles[

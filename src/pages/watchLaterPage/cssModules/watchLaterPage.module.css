@@ -8,8 +8,17 @@
 .watch-later-videos {
       display: grid;
       padding: 10px;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, 350px);
       grid-column-gap: 20px;
-      grid-row-gap: 10px;
-      width: 100%;
+      grid-row-gap: 20px;
+      width: fit-content;
+      max-width: 80%;
+}
+
+@media (max-width: 1000px) {
+      .watch-later-videos {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            width: 100%;
+            max-width: 100%;
+      }
 }
