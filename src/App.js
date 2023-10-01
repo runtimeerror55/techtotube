@@ -30,7 +30,7 @@ const router = createBrowserRouter([
             element: <NavBar></NavBar>,
             children: [
                   {
-                        path: "",
+                        path: "/",
                         element: <AwaitHomePage></AwaitHomePage>,
                         loader: homePageLoader,
                   },
