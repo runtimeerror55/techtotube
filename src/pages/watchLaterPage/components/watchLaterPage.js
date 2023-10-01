@@ -9,7 +9,7 @@ export const WatchLaterPage = () => {
       } else {
             return (
                   <main className={styles["main"]}>
-                        <h1>Watch Later</h1>
+                        <h2>Watch Later</h2>
                         <div className={styles["watch-later-videos"]}>
                               {loaderData.payload.map((video, index) => {
                                     return (

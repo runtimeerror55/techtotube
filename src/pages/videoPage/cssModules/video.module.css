@@ -40,7 +40,9 @@
       margin-left: 5px;
       display: flex;
 }
-.video-like-button {
+.video-like-button,
+.get-play-lists-button,
+.update-watch-later-button {
       background-color: transparent;
       padding-right: 10px;
       padding-left: 10px;
@@ -52,8 +54,19 @@
       cursor: pointer;
 }
 
-.video-like-icon {
+.video-like-icon,
+.get-play-lists-icon,
+.update-watch-later-icon {
       margin-right: 2px;
+}
+
+.video-options-open-button {
+      background-color: transparent;
+      font-size: 18px;
+      border-radius: 20px;
+      margin: 5px;
+      cursor: pointer;
+      display: none;
 }
 
 .loader {
@@ -72,5 +85,12 @@
 @media (max-width: 1000px) {
       .video-iframe {
             border-radius: 0;
+      }
+      .video-options-open-button {
+            display: block;
+      }
+      .get-play-lists-button,
+      .update-watch-later-button {
+            display: none;
       }
 }

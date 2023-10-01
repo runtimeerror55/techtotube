@@ -44,9 +44,9 @@ export const PlayList = ({
                               className={styles["play-list-logo"]}
                         />
                         <div className={styles["play-list-info"]}>
-                              <h2 className={styles["play-list-name"]}>
+                              <h3 className={styles["play-list-name"]}>
                                     {playList.name}
-                              </h2>
+                              </h3>
                               <span>{playList.videos.length} videos</span>
                         </div>
 

@@ -2,7 +2,12 @@ import { useFetcher } from "react-router-dom";
 import { useContext, useState } from "react";
 import styles from "../cssModules/video.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock, faHeart, faMusic } from "@fortawesome/free-solid-svg-icons";
+import {
+      faClock,
+      faHeart,
+      faFutbol,
+      faMusic,
+} from "@fortawesome/free-solid-svg-icons";
 import { PlayLists } from "../../../components/playListsOverLay/playLists";
 import { useEffect } from "react";
 import { Bars } from "react-loader-spinner";
@@ -10,6 +15,7 @@ import { toast } from "react-toastify";
 import { toastOptions, colorRingOptions } from "../../../utilities/utilities";
 import { ColorRing } from "react-loader-spinner";
 import { authContext } from "../../../context/authentication";
+import { VideoOptions } from "../../../components/videoOptions/videoOptions";
 
 export const Video = ({ playingVideo, watchLaterVideos }) => {
       const { token } = useContext(authContext);
@@ -26,6 +32,15 @@ export const Video = ({ playingVideo, watchLaterVideos }) => {
 
       const [showAddToWatchLaterLoader, setShowAddToWatchLaterLoader] =
             useState(false);
+
+      const [showVideoOptions, setShowVideoOptions] = useState(false);
+
+      const videoOptiosOpenButtonHandler = () => {
+            setShowVideoOptions(true);
+      };
+      const videoOptiosCloseButtonHandler = () => {
+            setShowVideoOptions(false);
+      };
 
       let isVideoPresentInWatchLaterVideos = false;
       if (token) {
@@ -129,7 +144,7 @@ export const Video = ({ playingVideo, watchLaterVideos }) => {
                                           <button
                                                 className={
                                                       styles[
-                                                            "video-like-button"
+                                                            "update-watch-later-button"
                                                       ]
                                                 }
                                           >
@@ -137,7 +152,7 @@ export const Video = ({ playingVideo, watchLaterVideos }) => {
                                                       icon={faClock}
                                                       className={
                                                             styles[
-                                                                  "video-like-icon"
+                                                                  "update-watch-later-icon"
                                                             ]
                                                       }
                                                 />
@@ -152,7 +167,7 @@ export const Video = ({ playingVideo, watchLaterVideos }) => {
                                           <button
                                                 className={
                                                       styles[
-                                                            "video-like-button"
+                                                            "update-watch-later-button"
                                                       ]
                                                 }
                                           >
@@ -160,7 +175,7 @@ export const Video = ({ playingVideo, watchLaterVideos }) => {
                                                       icon={faClock}
                                                       className={
                                                             styles[
-                                                                  "video-like-icon"
+                                                                  "update-watch-later-icon"
                                                             ]
                                                       }
                                                 />
@@ -171,18 +186,28 @@ export const Video = ({ playingVideo, watchLaterVideos }) => {
                               <saveToPLayListFetcher.Form action="/playlists">
                                     <button
                                           className={
-                                                styles["video-like-button"]
+                                                styles["get-play-lists-button"]
                                           }
                                     >
                                           <FontAwesomeIcon
                                                 icon={faMusic}
                                                 className={
-                                                      styles["video-like-icon"]
+                                                      styles[
+                                                            "get-play-lists-icon"
+                                                      ]
                                                 }
                                           />
                                           playlists
                                     </button>
                               </saveToPLayListFetcher.Form>
+                              <button
+                                    className={
+                                          styles["video-options-open-button"]
+                                    }
+                                    onClick={videoOptiosOpenButtonHandler}
+                              >
+                                    <FontAwesomeIcon icon={faFutbol} />
+                              </button>
                         </div>
                   </div>
                   {showPlayListsOverlay ? (
@@ -202,6 +227,16 @@ export const Video = ({ playingVideo, watchLaterVideos }) => {
                   ) : (
                         ""
                   )}
+
+                  {showVideoOptions ? (
+                        <VideoOptions
+                              video={playingVideo}
+                              videoOptiosCloseButtonHandler={
+                                    videoOptiosCloseButtonHandler
+                              }
+                              setShowVideoOptions={setShowVideoOptions}
+                        ></VideoOptions>
+                  ) : null}
             </>
       );
 };

@@ -9,7 +9,7 @@ export const WatchHistoryPage = () => {
       } else {
             return (
                   <main className={styles["main"]}>
-                        <h1>Watch History</h1>
+                        <h2>Watch History</h2>
                         <div className={styles["watch-history-videos"]}>
                               {loaderData.payload.map((video, index) => {
                                     return (

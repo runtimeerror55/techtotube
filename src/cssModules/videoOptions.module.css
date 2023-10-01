@@ -1,0 +1,58 @@
+.video-options {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      background-color: lavenderblush;
+      display: flex;
+      flex-direction: column;
+}
+
+.loader {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+}
+
+.video-option {
+      padding: 10px;
+      cursor: pointer;
+      width: 100%;
+      text-align: start;
+      background-color: transparent;
+}
+
+.video-option:hover {
+      background-color: black;
+      color: white;
+}
+
+.video-option-icon {
+      margin-right: 10px;
+}
+
+.video-options-close-button {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      font-size: 20px;
+      cursor: pointer;
+}
+
+.play-lists-loader {
+      position: fixed;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+}
