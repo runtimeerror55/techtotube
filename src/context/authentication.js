@@ -30,10 +30,8 @@ export const AuthProvider = ({ children }) => {
                   const user = decodeToken(token);
 
                   if (isMyTokenExpired) {
-                        console.log(user);
                         logout();
                   } else {
-                        console.log(user.exp * 1000 - Date.now());
                         setTimeout(() => {
                               logout();
                         }, user.exp * 1000 - Date.now());

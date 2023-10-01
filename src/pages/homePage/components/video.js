@@ -1,13 +1,9 @@
-import { useState, useEffect } from "react";
-import { useFetcher, Link } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "../cssModules/video.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFutbol } from "@fortawesome/free-solid-svg-icons";
-import { VideoOptions } from "./videoOptions";
-import { PlayLists } from "../../../components/playListsOverLay/playLists";
-import { toastOptions, colorRingOptions } from "../../../utilities/utilities";
-import { toast } from "react-toastify";
-import { ColorRing } from "react-loader-spinner";
+import { VideoOptions } from "../../../components/videoOptions/videoOptions";
 
 export const Video = ({ video }) => {
       const [showVideoOptions, setShowVideoOptions] = useState(false);

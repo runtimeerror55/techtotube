@@ -10,7 +10,7 @@ export const VideoPage = () => {
       const watchLaterVideos = loaderData.payload.watchLaterVideos.payload;
 
       const watchHistoryFetcher = useFetcher();
-      console.log(watchHistoryFetcher.state, watchHistoryFetcher.data);
+
       useEffect(() => {
             watchHistoryFetcher.submit(null, {
                   method: "PUT",
