@@ -1,4 +1,4 @@
-import { Form, useAsyncValue, useFetcher } from "react-router-dom";
+import { Form, useAsyncValue, useFetcher, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import styles from "../cssModules/playListsPage.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,7 +16,7 @@ import { PlayList } from "./playList";
 
 export const PlayListsPage = () => {
       const loaderData = useAsyncValue();
-
+      const navigate = useNavigate();
       const [showPlayListVideos, setShowPlayListVideos] = useState(null);
       const playListDropDownHandler = (event) => {
             event.stopPropagation();
@@ -26,29 +26,30 @@ export const PlayListsPage = () => {
                   setShowPlayListVideos(event.currentTarget.id);
             }
       };
-      if (loaderData.status === "error") {
-            return <div>{loaderData.message}</div>;
-      } else {
-            return (
-                  <main className={styles["main"]}>
-                        <h2 className={styles["playlists-heading"]}>
-                              PLAYLISTS
-                        </h2>
-                        {loaderData.payload.map((playList) => {
-                              return (
-                                    <PlayList
-                                          key={playList._id}
-                                          playList={playList}
-                                          playListDropDownHandler={
-                                                playListDropDownHandler
-                                          }
-                                          showPlayListVideos={
-                                                showPlayListVideos
-                                          }
-                                    ></PlayList>
-                              );
-                        })}
-                  </main>
-            );
-      }
+      useEffect(() => {
+            if (loaderData.status === "error") {
+                  toast.error(loaderData.message, {
+                        ...toastOptions,
+                        autoClose: false,
+                  });
+            }
+      }, [loaderData]);
+
+      return (
+            <main className={styles["main"]}>
+                  <h2 className={styles["playlists-heading"]}>PLAYLISTS</h2>
+                  {loaderData?.payload?.map((playList) => {
+                        return (
+                              <PlayList
+                                    key={playList._id}
+                                    playList={playList}
+                                    playListDropDownHandler={
+                                          playListDropDownHandler
+                                    }
+                                    showPlayListVideos={showPlayListVideos}
+                              ></PlayList>
+                        );
+                  })}
+            </main>
+      );
 };

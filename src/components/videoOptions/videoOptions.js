@@ -54,8 +54,6 @@ export const VideoOptions = (props) => {
                   if (data.loaderData.status === "error") {
                         toast.error(data.loaderData.message, toastOptions);
                   } else {
-                        toast.success(data.loaderData.message, toastOptions);
-
                         setPlayListsData(
                               saveToPLayListFetcher.data.loaderData.payload
                         );
@@ -64,7 +62,9 @@ export const VideoOptions = (props) => {
 
                   setShowSaveToPlayListsLoader(false);
             } else if (saveToPLayListFetcher.state !== "idle") {
-                  setShowSaveToPlayListsLoader(true);
+                  if (saveToPLayListFetcher.formAction !== undefined) {
+                        setShowSaveToPlayListsLoader(true);
+                  }
             }
       }, [saveToPLayListFetcher]);
       const watchLaterVideosFetcher = useFetcher();
@@ -87,7 +87,9 @@ export const VideoOptions = (props) => {
                   }
                   setShowLoader(false);
             } else if (watchLaterVideosFetcher.state !== "idle") {
-                  setShowLoader(true);
+                  if (watchLaterVideosFetcher.formAction !== undefined) {
+                        setShowLoader(true);
+                  }
             }
       }, [watchLaterVideosFetcher]);
 

@@ -20,8 +20,9 @@ module.exports.isLoggedIn = async (request, response, next) => {
                   }
             }
       } catch (error) {
-            response
-                  .status(500)
-                  .json({ status: "error", message: error.message });
+            response.status(500).json({
+                  status: "error",
+                  message: error.message + ", please login again",
+            });
       }
 };
