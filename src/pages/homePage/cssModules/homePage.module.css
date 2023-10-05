@@ -2,14 +2,14 @@
       background-color: aliceblue;
       flex-grow: 1;
       display: flex;
-      justify-content: center;
       flex-direction: column;
+      min-height: 100vh;
 }
 
 .videos {
       display: grid;
       padding: 10px;
-      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       grid-column-gap: 20px;
       grid-row-gap: 10px;
 }
