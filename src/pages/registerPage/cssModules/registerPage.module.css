@@ -12,7 +12,7 @@
       color: #333;
       width: 100vw;
       align-items: center;
-      min-height: 100vh;
+      min-height: 100svh;
 }
 .main {
       display: flex;
@@ -23,7 +23,7 @@
 }
 
 .register-form {
-      background-color: #1a866b;
+      background-color: brown;
       border-radius: 25px;
       display: flex;
       flex-direction: column;
@@ -33,6 +33,7 @@
       justify-content: space-around;
       color: white;
       align-items: center;
+      padding: 10px;
 }
 
 .label {
@@ -40,24 +41,28 @@
 }
 
 .user-details-input {
-      background-color: darkslategray;
+      background-color: #d27857;
       color: white;
       width: 70%;
       border-radius: 20px;
+      padding: 2px;
       padding-left: 10px;
+      outline: none;
 }
 ::placeholder {
       color: white;
 }
 .register-button {
-      background-color: darkslategray;
-      padding-left: 10px;
-      padding-right: 10px;
+      background-color: #d27857;
       cursor: pointer;
       color: white;
       padding-left: 20px;
       padding-right: 20px;
-      border-radius: 20px;
+      border-radius: 15px;
+      margin: 5px;
+      font-size: 16px;
+      width: 100px;
+      display: inline-block;
 }
 .login-button:hover {
       box-shadow: 0 0 10px rgba(0, 255, 0, 1);

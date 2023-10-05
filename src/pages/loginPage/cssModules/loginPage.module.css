@@ -3,6 +3,11 @@
       margin: 0;
       border: none;
       line-height: 1.6;
+      padding: 0;
+      text-decoration: none;
+}
+a {
+      font-size: unset;
 }
 .page {
       display: flex;
@@ -12,7 +17,7 @@
       color: #333;
       width: 100vw;
       align-items: center;
-      min-height: 100vh;
+      min-height: 100svh;
 }
 .main {
       display: flex;
@@ -22,8 +27,8 @@
       width: 100%;
 }
 
-.login-form {
-      background-color: #1a866b;
+.login-form-section {
+      background-color: brown;
       border-radius: 25px;
       display: flex;
       flex-direction: column;
@@ -33,6 +38,16 @@
       justify-content: space-around;
       color: white;
       align-items: center;
+      padding: 10px;
+}
+
+.login-form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      flex-grow: 1;
 }
 heading {
       font-size: larger;
@@ -42,25 +57,35 @@ heading {
 }
 
 .user-details-input {
-      background-color: darkslategray;
+      background-color: #d27857;
       color: white;
       width: 70%;
       border-radius: 20px;
+      padding: 2px;
       padding-left: 10px;
+      outline: none;
+      margin: 50px;
 }
 ::placeholder {
       color: white;
 }
-.login-button {
-      background-color: darkslategray;
-      padding-left: 10px;
-      padding-right: 10px;
+.login-button,
+.register-button {
+      background-color: #d27857;
       cursor: pointer;
       color: white;
       padding-left: 20px;
       padding-right: 20px;
-      border-radius: 20px;
+      border-radius: 15px;
+      margin: 5px;
+      font-size: 16px;
+      width: 100px;
+      display: inline-block;
 }
-.login-button:hover {
+.login-button {
+      margin-top: auto;
+}
+.login-button:hover,
+.register-button:hover {
       box-shadow: 0 0 10px rgb(242, 250, 242);
 }
