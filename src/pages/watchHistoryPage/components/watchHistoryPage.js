@@ -4,6 +4,7 @@ import styles from "../cssModules/watchHistoryPage.module.css";
 import { VideoOne } from "../../../components/videos/videoOne";
 import { toast } from "react-toastify";
 import { toastOptions } from "../../../utilities/utilities";
+import { CardOne } from "../../../components/cards/cardOne";
 
 export const WatchHistoryPage = () => {
       const loaderData = useAsyncValue();
@@ -18,7 +19,7 @@ export const WatchHistoryPage = () => {
       return (
             <main className={styles["main"]}>
                   <h2>Watch History</h2>
-                  <div className={styles["watch-history-videos"]}>
+                  <CardOne>
                         {loaderData?.payload?.map((video, index) => {
                               return (
                                     <VideoOne
@@ -28,7 +29,7 @@ export const WatchHistoryPage = () => {
                                     ></VideoOne>
                               );
                         })}
-                  </div>
+                  </CardOne>
             </main>
       );
 };

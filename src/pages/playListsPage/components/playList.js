@@ -13,6 +13,7 @@ import { toastOptions } from "../../../utilities/utilities";
 import { Bars, ColorRing } from "react-loader-spinner";
 import { VideoOne } from "../../../components/videos/videoOne";
 import { colorRingOptions } from "../../../utilities/utilities";
+import { CardOne } from "../../../components/cards/cardOne";
 
 export const PlayList = ({
       playList,
@@ -23,14 +24,19 @@ export const PlayList = ({
             useState(false);
 
       const deletePlayListFetcher = useFetcher();
+
       const deletePlayListFetcherStatus =
-            deletePlayListFetcher.state === "idle" &&
+            deletePlayListFetcher.state === "loading" &&
             deletePlayListFetcher.data;
-      console.log(deletePlayListFetcher.state);
 
       useEffect(() => {
-            console.log("hello");
             if (deletePlayListFetcherStatus) {
+                  const data = deletePlayListFetcher.data;
+                  if (data.status === "success") {
+                        toast.success(data.message, toastOptions);
+                  } else {
+                        toast.error(data.message, toastOptions);
+                  }
                   setShowDeletePlayListLoader(false);
             } else if (deletePlayListFetcher.state !== "idle") {
                   setShowDeletePlayListLoader(true);
@@ -94,7 +100,7 @@ export const PlayList = ({
                         </deletePlayListFetcher.Form>
                   </div>
                   {showPlayListVideos === playList._id ? (
-                        <div className={styles["play-list-videos"]}>
+                        <CardOne>
                               {playList.videos.map((video, index) => {
                                     return (
                                           <VideoOne
@@ -104,7 +110,7 @@ export const PlayList = ({
                                           ></VideoOne>
                                     );
                               })}
-                        </div>
+                        </CardOne>
                   ) : (
                         ""
                   )}

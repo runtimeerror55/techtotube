@@ -96,12 +96,11 @@ router.route("/playLists/:playListId").delete(
 
                   document.playLists.splice(playListIndex, 1);
                   document.save();
-                  setTimeout(() => {
-                        response.status(200).json({
-                              status: "success",
-                              message: "deleted the play list",
-                        });
-                  }, 1000);
+
+                  response.status(200).json({
+                        status: "success",
+                        message: "play list deleted",
+                  });
             } catch (error) {
                   response
                         .status(500)
@@ -175,7 +174,6 @@ router.route("/playLists/:playListId/:videoId")
                         response.status(200).json({
                               status: "success",
                               message: "removed from play list",
-                              payload: document.playLists,
                         });
                   }, 1000);
             } catch (error) {

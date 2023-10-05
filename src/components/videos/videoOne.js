@@ -10,7 +10,7 @@ import { Bars, ColorRing } from "react-loader-spinner";
 export const VideoOne = ({ video, deleteAction }) => {
       const deleteVideofromPlayListFetcher = useFetcher();
       const deleteVideofromPlayListFetcherStatus =
-            deleteVideofromPlayListFetcher.state === "idle" &&
+            deleteVideofromPlayListFetcher.state === "loading" &&
             deleteVideofromPlayListFetcher.data;
 
       const [
@@ -19,7 +19,6 @@ export const VideoOne = ({ video, deleteAction }) => {
       ] = useState(false);
 
       useEffect(() => {
-            console.log(deleteVideofromPlayListFetcher.data);
             if (deleteVideofromPlayListFetcherStatus) {
                   const data = deleteVideofromPlayListFetcher.data;
 

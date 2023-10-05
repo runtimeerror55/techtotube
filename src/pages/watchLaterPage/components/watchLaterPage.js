@@ -4,6 +4,7 @@ import { VideoOne } from "../../../components/videos/videoOne";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { toastOptions } from "../../../utilities/utilities";
+import { CardOne } from "../../../components/cards/cardOne";
 
 export const WatchLaterPage = () => {
       const loaderData = useAsyncValue();
@@ -20,7 +21,7 @@ export const WatchLaterPage = () => {
       return (
             <main className={styles["main"]}>
                   <h2>Watch Later</h2>
-                  <div className={styles["watch-later-videos"]}>
+                  <CardOne>
                         {loaderData?.payload?.map((video, index) => {
                               return (
                                     <VideoOne
@@ -30,7 +31,7 @@ export const WatchLaterPage = () => {
                                     ></VideoOne>
                               );
                         })}
-                  </div>
+                  </CardOne>
             </main>
       );
 };

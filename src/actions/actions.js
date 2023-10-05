@@ -32,7 +32,8 @@ export const playListActions = async ({ request, params }) => {
                         }
                   );
 
-                  return redirect("/playLists");
+                  const data = response.json();
+                  return data;
             }
       } catch (error) {
             return { status: "error", message: error.message };
@@ -65,10 +66,11 @@ export const playListVideoActions = async ({ request, params }) => {
                         }
                   );
                   const data = await response.json();
+                  console.log(data);
                   return data;
             }
       } catch (error) {
-            return { status: "errro", message: error.message };
+            return { status: "error", message: error.message };
       }
 };
 

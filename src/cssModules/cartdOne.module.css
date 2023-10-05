@@ -1,0 +1,16 @@
+.card-one {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-column-gap: 20px;
+      grid-row-gap: 10px;
+      width: 80%;
+      max-width: 1600px;
+      margin: 10px;
+}
+
+@media (max-width: 1000px) {
+      .card-one {
+            width: 100%;
+            padding: 10px;
+      }
+}

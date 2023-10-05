@@ -40,6 +40,7 @@ export const homePageLoader = async ({ request }) => {
 };
 
 export const playListsLoader = async () => {
+      console.log("playlists loader");
       return defer({
             loaderData: (async () => {
                   try {
@@ -49,6 +50,7 @@ export const playListsLoader = async () => {
                               },
                         });
                         const data = await response.json();
+                        console.log(data);
                         return data;
                   } catch (error) {
                         return { status: "error", message: error.message };
