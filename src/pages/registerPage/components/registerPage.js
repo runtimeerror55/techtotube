@@ -24,10 +24,11 @@ export const RegisterPage = () => {
                               buttonClass={styles["register-button"]}
                               loaderHeight="25"
                               loaderWidth="100"
-                              action="/register?type=register+user"
+                              action="/register"
                               method="POST"
                               formClass={styles["register-form"]}
                               callBack={callBack}
+                              loaderColor="black"
                         >
                               <input
                                     type="email"

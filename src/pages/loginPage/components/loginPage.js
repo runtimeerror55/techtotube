@@ -31,6 +31,7 @@ export const LoginPage = () => {
                                     method="POST"
                                     formClass={styles["login-form"]}
                                     callBack={callBack}
+                                    loaderColor="black"
                               >
                                     <input
                                           type="text"

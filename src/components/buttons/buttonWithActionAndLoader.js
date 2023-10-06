@@ -15,6 +15,7 @@ export const ButtonWithActionAndLoader = ({
       loaderHeight,
       loaderWidth,
       callBack,
+      loaderColor,
 }) => {
       const updatePlayListsFetcher = useFetcher();
 
@@ -65,7 +66,11 @@ export const ButtonWithActionAndLoader = ({
                                     <Bars
                                           height={loaderHeight}
                                           width={loaderWidth}
-                                          color="white"
+                                          color={
+                                                loaderColor
+                                                      ? loaderColor
+                                                      : "white"
+                                          }
                                           ariaLabel="bars-loading"
                                           visible={true}
                                     />

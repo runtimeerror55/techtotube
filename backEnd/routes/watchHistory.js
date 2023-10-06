@@ -43,7 +43,7 @@ router.route("/watchHistory/:videoId")
 
                         response.status(200).json({
                               status: "success",
-                              message: "added to watch later",
+                              message: "added to watch history",
                         });
                   } else {
                         const video = watchHistory.videos.find((video) => {
@@ -53,7 +53,7 @@ router.route("/watchHistory/:videoId")
                         if (video) {
                               response.status(500).json({
                                     status: "error",
-                                    message: "video is already present in watch later",
+                                    message: "video is already present in watch historyr",
                               });
                         } else {
                               watchHistory.videos.push(videoId);
@@ -61,7 +61,7 @@ router.route("/watchHistory/:videoId")
 
                               response.status(200).json({
                                     status: "success",
-                                    message: "added to watch later",
+                                    message: "added to watch history",
                               });
                         }
                   }
@@ -85,7 +85,7 @@ router.route("/watchHistory/:videoId")
 
                   response.status(200).json({
                         status: "success",
-                        message: "deleted from watch later",
+                        message: "deleted from watch history",
                   });
             } catch (error) {
                   response

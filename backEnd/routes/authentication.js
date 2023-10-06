@@ -20,7 +20,7 @@ router.route("/login").post(async (request, response) => {
                               { _id: user._id, name: user.name },
                               "secret",
                               {
-                                    expiresIn: 60 * 60,
+                                    expiresIn: 60 * 60 * 5,
                               }
                         );
 
@@ -94,9 +94,10 @@ router.route("/register")
                         { _id: newUser._id, name: newUser.name },
                         "secret",
                         {
-                              expiresIn: 60 * 60,
+                              expiresIn: 60 * 60 * 5,
                         }
                   );
+                  const decodedToken = jwt.verify(token, "secret");
                   response.status(200).json({
                         status: "success",
                         message: "succesfully registered",
@@ -105,6 +106,7 @@ router.route("/register")
                               user: {
                                     name: newUser.name,
                               },
+                              expiresAt: decodedToken.exp,
                         },
                   });
             } catch (error) {
