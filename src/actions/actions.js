@@ -1,4 +1,3 @@
-import { redirect } from "react-router-dom";
 import { getToken } from "../utilities/utilities";
 let backEndUrl = "https://techtotube-backend.vercel.app/";
 // backEndUrl = "http://localhost:8080/";

@@ -38,6 +38,9 @@ export const NavBar = () => {
                         </section>
 
                         <section>
+                              <Link to="/" className={styles["nav-link"]}>
+                                    HOME
+                              </Link>
                               {token ? (
                                     <button
                                           onClick={logoutHandler}

@@ -44,7 +44,7 @@ export const SideBar = (props) => {
                               />
                               Watch History
                         </Link>
-                        <Link
+                        {/* <Link
                               className={styles["side-bar-link"]}
                               onClick={sideBarCloseButtonClickHandler}
                         >
@@ -53,7 +53,7 @@ export const SideBar = (props) => {
                                     className={styles["side-bar-link-icon"]}
                               />
                               Likes
-                        </Link>
+                        </Link> */}
                         <Link
                               to="/watchLater"
                               className={styles["side-bar-link"]}

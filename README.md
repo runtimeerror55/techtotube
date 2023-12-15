@@ -1,4 +1,7 @@
-# ecommerce
+# video library
+
+1. next page items fetcher is getting fired even after empty elements or less than per page items or error
+2. deleting playist is acting weird ,loader not showing for enough time
 
 ## Tech stack
 

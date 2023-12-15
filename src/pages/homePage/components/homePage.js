@@ -1,22 +1,53 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAsyncValue } from "react-router-dom";
 import styles from "../cssModules/homePage.module.css";
 import { Video } from "./video";
 import { Filtering } from "./filtering";
 import { PageLandingLoader } from "../../../components/loaders/pageLandingLoader";
+import { NextPageItems } from "./nexPageItems";
 
 export const HomePage = () => {
       const [loaderData, setLoaderData] = useState(useAsyncValue());
       const [showFilterChangeLoader, setFilterChangeLoader] = useState(false);
+      const [filtersValues, setFilterValues] = useState({
+            page: 0,
+            category: "all",
+      });
+      const [showNextPageItems, setShowNextPageItems] = useState(false);
+
+      useEffect(() => {
+            const scrollEventCallBack = (event) => {
+                  if (
+                        Math.abs(
+                              document.documentElement.scrollHeight -
+                                    window.scrollY -
+                                    document.documentElement.clientHeight
+                        ) <= 1
+                  ) {
+                        setFilterValues((previous) => {
+                              return {
+                                    ...previous,
+                                    page: previous.page + 1,
+                              };
+                        });
+                        setShowNextPageItems(true);
+                  }
+            };
+            window.addEventListener("scroll", scrollEventCallBack);
+            return () => {
+                  window.removeEventListener("scroll", scrollEventCallBack);
+            };
+      }, []);
+
       if (loaderData.status === "error") {
             return <div>{loaderData.message}</div>;
       }
-
       return (
             <main className={styles["main"]}>
                   <Filtering
                         setLoaderData={setLoaderData}
                         setFilterChangeLoader={setFilterChangeLoader}
+                        setFilterValues={setFilterValues}
                   ></Filtering>
 
                   <section className={styles["videos"]}>
@@ -28,6 +59,15 @@ export const HomePage = () => {
                               })
                         )}
                   </section>
+                  {showNextPageItems ? (
+                        <section className={styles["next-page-section"]}>
+                              <NextPageItems
+                                    setLoaderData={setLoaderData}
+                                    setShowNextPageItems={setShowNextPageItems}
+                                    filtersValues={filtersValues}
+                              ></NextPageItems>
+                        </section>
+                  ) : null}
             </main>
       );
 };

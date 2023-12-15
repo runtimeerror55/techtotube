@@ -5,7 +5,7 @@ import styles from "../cssModules/filtering.module.css";
 const radioFilterIds = ["all", "cars", "monitors", "tablets", "laptops"];
 
 export const Filtering = forwardRef(
-      ({ setLoaderData, setFilterChangeLoader }, ref) => {
+      ({ setLoaderData, setFilterChangeLoader, setFilterValues }, ref) => {
             const filterChangeFetcher = useFetcher();
             const filterChangeFetcherStatus =
                   filterChangeFetcher.state === "idle" &&
@@ -26,10 +26,13 @@ export const Filtering = forwardRef(
                   useState("all");
 
             const filterChangeHandler = (event) => {
-                  const query = event.target.id;
+                  const category = event.target.id;
                   setCurrentActiveRadioId(event.target.id);
-                  console.log(query);
-                  filterChangeFetcher.load(`/?category=${query}`);
+                  setFilterValues({
+                        category,
+                        page: 0,
+                  });
+                  filterChangeFetcher.load(`/?page=0&category=${category}`);
                   event.preventDefault();
             };
             return (
