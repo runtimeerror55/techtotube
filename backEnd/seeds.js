@@ -25,6 +25,16 @@ const videos = [
             channel: "6515443e75ceec2ecb71b94b",
       },
       {
+            title: "iPad Killer or Clone?",
+            youtubeId: "03OZsmDV56k",
+            thumbnail:
+                  "https://img.youtube.com/vi/03OZsmDV56k/maxresdefault.jpg",
+            description: "oneplus tablet review",
+            uploadedDate: "06/01/1998",
+            category: "tablets",
+            channel: "6515443e75ceec2ecb71b94b",
+      },
+      {
             title: "Driving The New Fastest Car Ever Made!",
             youtubeId: "sF9xYtouZjY",
             thumbnail:
@@ -132,15 +142,30 @@ const seeding = async () => {
       //         "64e9c976823c65a88acf8767",
       //         "64e9c976823c65a88acf8769",
       //   ];
-      for (let i of videos) {
-            const newVideo = new VideoModel(i);
+      //   for (let k = 0; k < 10; k++) {
+      //         for (let i of videos) {
+      //               const newVideo = new VideoModel(i);
+      //               await newVideo.save();
+      //         }
+      //   }
+
+      for (let i = 0; i < 20; i++) {
+            const newVideo = new VideoModel({
+                  title: "Driving Tesla Cybertruck: Everything You Need to Know!",
+                  youtubeId: "XxOh12Uhg08",
+                  thumbnail:
+                        "https://img.youtube.com/vi/XxOh12Uhg08/maxresdefault.jpg",
+                  description: "cybertruck review",
+                  uploadedDate: "06/01/1998",
+                  category: "cars",
+                  channel: "6515443e75ceec2ecb71b94b",
+            });
             await newVideo.save();
       }
-
       //   for (let i of channels) {
       //         const newChannel = new ChannelModel(i);
       //         await newChannel.save();
       //   }
 };
 
-seeding();
+// seeding();

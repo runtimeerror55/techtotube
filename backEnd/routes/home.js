@@ -4,14 +4,18 @@ const VideoModel = require("../models/videoModel");
 
 router.route("/").get(async (request, response) => {
       try {
-            let queryString = request.query;
+            let queryString = { category: request.query.category };
+            const page = request.query.page || 0;
+            const itemsPerPage = 10;
             console.log(queryString);
-            if (queryString.category === "all") {
+            if (queryString.category === "all" || !queryString.category) {
                   queryString = {};
             }
-            const videos = await VideoModel.find(queryString).populate(
-                  "channel"
-            );
+
+            const videos = await VideoModel.find(queryString)
+                  .skip(page * itemsPerPage)
+                  .limit(itemsPerPage)
+                  .populate("channel");
             if (videos.length === 0) {
                   response.status(500).json({
                         status: "error",
