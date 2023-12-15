@@ -7,19 +7,24 @@ const radioFilterIds = ["all", "cars", "monitors", "tablets", "laptops"];
 export const Filtering = forwardRef(
       ({ setLoaderData, setFilterChangeLoader, setFilterValues }, ref) => {
             const filterChangeFetcher = useFetcher();
+            const [filterChangeFetcherFlag, setFilterChangeFetcherFlag] =
+                  useState(false);
             const filterChangeFetcherStatus =
                   filterChangeFetcher.state === "idle" &&
                   filterChangeFetcher.data;
 
             useEffect(() => {
-                  if (filterChangeFetcherStatus) {
-                        const data = filterChangeFetcher.data.loaderData;
-                        if (data.status === "success") {
-                              setLoaderData(data);
+                  if (filterChangeFetcherFlag) {
+                        if (filterChangeFetcherStatus) {
+                              const data = filterChangeFetcher.data.loaderData;
+                              if (data.status === "success") {
+                                    setLoaderData(data);
+                              }
+                              setFilterChangeLoader(false);
+                              setFilterChangeFetcherFlag(false);
+                        } else if (filterChangeFetcher.state !== "idle") {
+                              setFilterChangeLoader(true);
                         }
-                        setFilterChangeLoader(false);
-                  } else if (filterChangeFetcher.state !== "idle") {
-                        setFilterChangeLoader(true);
                   }
             }, [filterChangeFetcher]);
             const [currentActiveRadioId, setCurrentActiveRadioId] =
@@ -28,6 +33,7 @@ export const Filtering = forwardRef(
             const filterChangeHandler = (event) => {
                   const category = event.target.id;
                   setCurrentActiveRadioId(event.target.id);
+                  setFilterChangeFetcherFlag(true);
                   setFilterValues({
                         category,
                         page: 0,
