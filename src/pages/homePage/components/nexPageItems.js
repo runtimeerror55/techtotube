@@ -7,6 +7,8 @@ export const NextPageItems = ({
       setLoaderData,
       setShowNextPageItems,
       filtersValues,
+      setShowNextPageData,
+      setFilterValues,
 }) => {
       const fetcher = useFetcher();
       const fetcherStatus = fetcher.data && fetcher.state === "idle";
@@ -14,7 +16,10 @@ export const NextPageItems = ({
             if (fetcherStatus) {
                   const data = fetcher.data;
                   console.log(data);
-                  if (data.loaderData.status === "success") {
+                  if (
+                        data.loaderData.status === "success" &&
+                        data.loaderData.payload.length > 0
+                  ) {
                         setShowNextPageItems(false);
                         setLoaderData((previous) => {
                               return {
@@ -25,14 +30,23 @@ export const NextPageItems = ({
                                     ],
                               };
                         });
+                        setFilterValues((previous) => {
+                              return {
+                                    ...previous,
+                                    page: previous.page + 1,
+                              };
+                        });
                   } else {
                         setShowNextPageItems(false);
+                        setShowNextPageData("end");
                   }
             }
       }, [fetcher, fetcherStatus]);
       useEffect(() => {
             fetcher.load(
-                  `/?page=${filtersValues.page}&category=${filtersValues.category}`
+                  `/?page=${filtersValues.page + 1}&category=${
+                        filtersValues.category
+                  }`
             );
       }, []);
 

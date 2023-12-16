@@ -14,23 +14,27 @@ export const HomePage = () => {
             category: "all",
       });
       const [showNextPageItems, setShowNextPageItems] = useState(false);
+      const [nextpageData, setShowNextPageData] = useState("success");
 
       useEffect(() => {
             const scrollEventCallBack = (event) => {
-                  if (
-                        Math.abs(
-                              document.documentElement.scrollHeight -
-                                    window.scrollY -
-                                    document.documentElement.clientHeight
-                        ) <= 1
-                  ) {
-                        setFilterValues((previous) => {
-                              return {
-                                    ...previous,
-                                    page: previous.page + 1,
-                              };
-                        });
-                        setShowNextPageItems(true);
+                  console.log(showNextPageItems);
+                  if (!showNextPageItems) {
+                        if (
+                              Math.abs(
+                                    document.documentElement.scrollHeight -
+                                          window.scrollY -
+                                          document.documentElement.clientHeight
+                              ) <= 1
+                        ) {
+                              //   setFilterValues((previous) => {
+                              //         return {
+                              //               ...previous,
+                              //               page: previous.page + 1,
+                              //         };
+                              //   });
+                              setShowNextPageItems(true);
+                        }
                   }
             };
             window.addEventListener("scroll", scrollEventCallBack);
@@ -48,6 +52,8 @@ export const HomePage = () => {
                         setLoaderData={setLoaderData}
                         setFilterChangeLoader={setFilterChangeLoader}
                         setFilterValues={setFilterValues}
+                        setShowNextPageData={setShowNextPageData}
+                        setShowNextPageItems={setShowNextPageItems}
                   ></Filtering>
 
                   <section className={styles["videos"]}>
@@ -59,12 +65,14 @@ export const HomePage = () => {
                               })
                         )}
                   </section>
-                  {showNextPageItems ? (
+                  {showNextPageItems && nextpageData === "success" ? (
                         <section className={styles["next-page-section"]}>
                               <NextPageItems
                                     setLoaderData={setLoaderData}
                                     setShowNextPageItems={setShowNextPageItems}
                                     filtersValues={filtersValues}
+                                    setShowNextPageData={setShowNextPageData}
+                                    setFilterValues={setFilterValues}
                               ></NextPageItems>
                         </section>
                   ) : null}

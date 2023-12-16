@@ -1,9 +1,7 @@
 # video library
 
-1. next page items fetcher is getting fired even after empty elements or less than per page items or error
-2. deleting playist is acting weird ,loader not showing for enough time
-3. filter change reloadin again after action
-4. on out of focus the video options page should be closed
+1. deleting playist is acting weird ,loader not showing for enough time
+2. on out of focus the video options page should be closed
 
 ## Tech stack
 

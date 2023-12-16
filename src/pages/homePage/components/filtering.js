@@ -5,7 +5,16 @@ import styles from "../cssModules/filtering.module.css";
 const radioFilterIds = ["all", "cars", "monitors", "tablets", "laptops"];
 
 export const Filtering = forwardRef(
-      ({ setLoaderData, setFilterChangeLoader, setFilterValues }, ref) => {
+      (
+            {
+                  setLoaderData,
+                  setFilterChangeLoader,
+                  setFilterValues,
+                  setShowNextPageData,
+                  setShowNextPageItems,
+            },
+            ref
+      ) => {
             const filterChangeFetcher = useFetcher();
             const [filterChangeFetcherFlag, setFilterChangeFetcherFlag] =
                   useState(false);
@@ -19,6 +28,8 @@ export const Filtering = forwardRef(
                               const data = filterChangeFetcher.data.loaderData;
                               if (data.status === "success") {
                                     setLoaderData(data);
+                                    setShowNextPageData("success");
+                                    setShowNextPageItems(false);
                               }
                               setFilterChangeLoader(false);
                               setFilterChangeFetcherFlag(false);
