@@ -10,9 +10,12 @@
             {
                   "src": "/(.*)",
                   "dest": "index.js",
-                  "headers": {
-                        "Access-Control-Allow-Origin": "https://techtotube.vercel.app"
-                  }
+                  "headers": [
+                        {
+                              "key": "Access-Control-Allow-Origin",
+                              "value": "https://techtotube.vercel.app"
+                        }
+                  ]
             }
       ]
 }
