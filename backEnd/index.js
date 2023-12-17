@@ -21,22 +21,16 @@ mongoose
       .catch((e) => {
             console.log(e);
       });
-app.use(
-      cors({
-            origin: "https://techtotube.vercel.app",
-      })
-);
+
+// app.use(
+//       cors({
+//             origin: "https://techtotube.vercel.app",
+//       })
+// );
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("*", (request, response, next) => {
-      console.log(request.method);
-      if (request.method === "OPTIONS") {
-            response.status(200).send();
-      } else {
-            next();
-      }
-});
+
 app.use("/", authenticationRouter);
 app.use("/", homeRouter);
 app.use("/", watchLaterRouter);
