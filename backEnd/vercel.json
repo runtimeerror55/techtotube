@@ -6,16 +6,10 @@
                   "use": "@vercel/node"
             }
       ],
-
-      "headers": [
+      "routes": [
             {
-                  "source": "/api/(.*)",
-                  "headers": [
-                        {
-                              "key": "Access-Control-Allow-Origin",
-                              "value": "https://www.techtotube.vercel.app"
-                        }
-                  ]
+                  "src": "/(.*)",
+                  "dest": "index.js"
             }
       ]
 }
