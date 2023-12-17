@@ -23,7 +23,7 @@ mongoose
       });
 app.use(
       cors({
-            origin: "https://techtotube-backend.vercel.app",
+            origin: "https://techtotube.vercel.app",
       })
 );
 
