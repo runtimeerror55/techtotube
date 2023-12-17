@@ -16,7 +16,7 @@
                         },
                         {
                               "key": "Access-Control-Allow-Origin",
-                              "value": "https://techtotube.vercel.app/"
+                              "value": "https://techtotube.vercel.app"
                         },
                         {
                               "key": "Access-Control-Allow-Methods",
