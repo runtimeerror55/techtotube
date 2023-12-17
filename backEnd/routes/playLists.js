@@ -126,13 +126,12 @@ router.route("/playLists/:playListId/:videoId")
                         playList.videos.push(request.params.videoId);
                         console.log(playList.videos);
                         await document.save();
-                        setTimeout(() => {
-                              response.json({
-                                    status: "success",
-                                    message: "added to play list",
-                                    payload: document.playLists,
-                              });
-                        }, 1000);
+
+                        response.json({
+                              status: "success",
+                              message: "added to play list",
+                              payload: document.playLists,
+                        });
                   } else {
                         response.json({
                               status: "error",
@@ -164,12 +163,11 @@ router.route("/playLists/:playListId/:videoId")
                   });
                   playList.videos.splice(videoIndex, 1);
                   await document.save();
-                  setTimeout(() => {
-                        response.status(200).json({
-                              status: "success",
-                              message: "removed from play list",
-                        });
-                  }, 1000);
+
+                  response.status(200).json({
+                        status: "success",
+                        message: "removed from play list",
+                  });
             } catch (error) {
                   response
                         .status(500)
