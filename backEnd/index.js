@@ -31,8 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("*", (request, response) => {
       if (request.method === "OPIONS") {
-            response.status(200).end();
-            return;
+            response.status(200).send();
       }
 });
 app.use("/", authenticationRouter);
