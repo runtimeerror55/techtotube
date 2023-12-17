@@ -17,28 +17,22 @@ router.route("/playLists")
                   });
 
                   if (!playLists) {
-                        setTimeout(() => {
-                              response.status(200).json({
-                                    status: "success",
-                                    payload: [],
-                              });
-                        }, 1000);
+                        response.status(200).json({
+                              status: "success",
+                              payload: [],
+                        });
                   } else {
-                        setTimeout(() => {
-                              response.status(200).json({
-                                    status: "success",
-                                    message: "fetched successfully",
-                                    payload: playLists.playLists,
-                              });
-                        }, 1000);
+                        response.status(200).json({
+                              status: "success",
+                              message: "fetched successfully",
+                              payload: playLists.playLists,
+                        });
                   }
             } catch (error) {
-                  setTimeout(() => {
-                        response.status(500).json({
-                              status: "error",
-                              message: error.message,
-                        });
-                  }, 1000);
+                  response.status(500).json({
+                        status: "error",
+                        message: error.message,
+                  });
             }
       })
       .post(isLoggedIn, async (request, response) => {
