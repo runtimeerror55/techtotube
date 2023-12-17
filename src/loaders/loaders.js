@@ -46,7 +46,7 @@ export const playListsLoader = async () => {
                   try {
                         const response = await fetch(`${backEndUrl}playLists`, {
                               headers: {
-                                    authorization: "Bearer " + getToken(),
+                                    Authorization: "Bearer " + getToken(),
                               },
                         });
                         const data = await response.json();
@@ -68,7 +68,7 @@ export const watchLaterPageLoader = async () => {
                               `${backEndUrl}watchLater`,
                               {
                                     headers: {
-                                          authorization: "Bearer " + getToken(),
+                                          Authorization: "Bearer " + getToken(),
                                     },
                               }
                         );
@@ -91,7 +91,7 @@ export const watchHistoryPageLoader = async () => {
                               `${backEndUrl}watchHistory`,
                               {
                                     headers: {
-                                          authorization: "Bearer " + getToken(),
+                                          Authorization: "Bearer " + getToken(),
                                     },
                               }
                         );
@@ -120,7 +120,7 @@ export const VideoPageLoader = async ({ request, params }) => {
 
                         response = await fetch(`${backEndUrl}watchLater`, {
                               headers: {
-                                    authorization: "Bearer " + getToken(),
+                                    Authorization: "Bearer " + getToken(),
                               },
                         });
                         const watchLaterVideos = await response.json();
