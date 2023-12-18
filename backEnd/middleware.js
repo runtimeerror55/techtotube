@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+
 module.exports.isLoggedIn = async (request, response, next) => {
       try {
             const token = request.headers.authorization.split(" ")[1];
