@@ -24,7 +24,7 @@ mongoose
 
 // app.use(
 //       cors({
-//             origin: "https://techtotube.vercel.app",
+//             origin: "http://localhost:3000",
 //       })
 // );
 
