@@ -31,6 +31,10 @@ mongoose
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.options("*", (request, response) => {
+      response.send(200);
+});
+
 app.use("/", authenticationRouter);
 app.use("/", homeRouter);
 app.use("/", watchLaterRouter);
