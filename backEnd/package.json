@@ -11,7 +11,7 @@
             "jsonwebtoken": "^9.0.2"
       },
       "scripts": {
-            "build": "nodemon index.js"
+            "start": "nodemon index.js"
       },
       "eslintConfig": {
             "extends": [
