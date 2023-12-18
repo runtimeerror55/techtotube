@@ -1,4 +1,5 @@
 {
+      "buildCommand": "vercel build",
       "headers": [
             {
                   "source": "/(.*)",
