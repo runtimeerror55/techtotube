@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
+
 module.exports.isLoggedIn = async (request, response, next) => {
       try {
             const token = request.headers.authorization.split(" ")[1];
