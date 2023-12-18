@@ -31,7 +31,7 @@ mongoose
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.options("*", (request, response) => {
+app.options("/*", (request, response) => {
       response.send(200);
 });
 
