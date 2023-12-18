@@ -31,8 +31,12 @@ mongoose
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.options("/*", (request, response) => {
-      response.send(200);
+app.use("*", (request, response, next) => {
+      if (request.method === "OPTIONS") {
+            response.status(200).send("ok");
+            return;
+      }
+      next();
 });
 
 app.use("/", authenticationRouter);
