@@ -1,39 +1,32 @@
-# video library
+<h3>Introduction</h3>
+<p>A web based tech reviews app. Find all the tech related reviews all in one place.</p>
 
-1. deleting playist is acting weird ,loader not showing for enough time
-2. on out of focus the video options page should be closed
-
-## Tech stack
-
-- Html
-- css
-- javascript
-- react
-- express
-- mongodb
-
-## Pages
-
-1. videos page
-2. play lists page
-3. video page
-4. watch later page
-5. login page
-6. register page
-
-## functionalities
-
-1. add video to watch later
-2. delete video from watch later
-3. create play list
-4. add video to a particular play list
-5. delete video from a particular play list
-6. filtering products using predefined tags
-7. loading state for all the functionalities
-8. error handling for all the functionalities (frontend and backEnd)
-9. notifications for all the functionalities
-10. authentication
-
+<h3>key functionalities</h3>
+<ul>
+  <li>add video to watch later</li>
+  <li>delete video from watch later</li>
+  <li>create play list</li>
+  <li>add video to a particular play list</li>
+  <li>delete video from a particular play list</li><li>filtering products using predefined tags</li>
+  <li>infinite scrolling</li>
+  <li>loading state for all the functionalities</li><li>error handling for all the functionalities (frontend and backEnd)</li>
+  <li>notifications for all the functionalities</li><li>authentication</li>
+</ul>
+<h3>Lannguages and tools used:</h3>
+<ul>
+  <li>html</li>
+  <li>javscript</li>
+  <li>css</li>
+  <li>react</li>
+  <li>express</li>
+  <li>mongoose</li>
+  <li>bcrypt</li>
+  <li>jsonwebtoken</li>
+  <li>react-jwt</li>
+  <li>react-loader-spinner</li>
+  <li>react-router-dom</li>
+  <li>react-toastify</li>
+</ul>
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
