@@ -1,3 +1,5 @@
+<h2 align="center">Techtotube</h2>
+
 <h3>Introduction</h3>
 <p>A web based tech reviews app. Find all the tech related reviews all in one place.</p>
 
