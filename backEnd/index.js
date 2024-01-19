@@ -11,11 +11,13 @@ const { playListsRouter } = require("./routes/playLists");
 const { authenticationRouter } = require("./routes/authentication");
 const { watchHistoryRouter } = require("./routes/watchHistory");
 
-console.log(process.env.db_url);
-console.log(process.env);
+if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
+      require("dotenv").config({ path: __dirname + "\\.env" });
+      app.use(cors("*"));
+}
 
 mongoose
-      .connect(process.env.db_url)
+      .connect(process.env.local_db_url)
       .then(() => {
             console.log("connected to mongodb");
       })
