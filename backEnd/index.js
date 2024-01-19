@@ -12,9 +12,7 @@ const { authenticationRouter } = require("./routes/authentication");
 const { watchHistoryRouter } = require("./routes/watchHistory");
 
 mongoose
-      .connect(
-            "mongodb+srv://aakashdeep954:a1S6mNXvLK0b158x@portfoliocluster.c1qp6ud.mongodb.net/techtotube?retryWrites=true&w=majority"
-      )
+      .connect(process.env.db_url)
       .then(() => {
             console.log("connected to mongodb");
       })
