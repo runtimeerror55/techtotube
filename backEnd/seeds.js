@@ -6,7 +6,7 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === "development") {
       require("dotenv").config({ path: __dirname + "\\.env" });
 }
 mongoose
-      .connect(process.env.local_db_url)
+      .connect(process.env.hosted_db_url)
       .then(() => {
             console.log("connected to mongodb");
       })
