@@ -1,40 +1,45 @@
-# video library
+<h2 align="center">Techtotube</h2>
 
-1. deleting playist is acting weird ,loader not showing for enough time
-2. on out of focus the video options page should be closed
+<h3>Introduction</h3>
+<p>A web based tech reviews app. Find all the tech related reviews all in one place.</p>
+<h3>Media</h3>
+<div>
+<img width="400" src="https://res.cloudinary.com/diwrxz82u/image/upload/v1704827346/video-library/one_di3c4g.png" alt="project" data-index="0">
 
-## Tech stack
-
-- Html
-- css
-- javascript
-- react
-- express
-- mongodb
-
-## Pages
-
-1. videos page
-2. play lists page
-3. video page
-4. watch later page
-5. login page
-6. register page
-
-## functionalities
-
-1. add video to watch later
-2. delete video from watch later
-3. create play list
-4. add video to a particular play list
-5. delete video from a particular play list
-6. filtering products using predefined tags
-7. infinite scrolling
-8. loading state for all the functionalities
-9. error handling for all the functionalities (frontend and backEnd)
-10. notifications for all the functionalities
-11. authentication
-
+<img width="400" src="https://res.cloudinary.com/diwrxz82u/image/upload/v1704827353/video-library/two_ai2amb.png" alt="project" data-index="1">
+<img width="400" src="https://res.cloudinary.com/diwrxz82u/image/upload/v1704827358/video-library/three_kn5tww.png" alt="project" data-index="2">
+<img width="400" src="https://res.cloudinary.com/diwrxz82u/image/upload/v1704827363/video-library/four_kw63qo.png" alt="project" data-index="3">
+<img width="400" src="https://res.cloudinary.com/diwrxz82u/image/upload/v1704827367/video-library/five_k4ymbf.png" alt="project" data-index="4">
+<img width="400" src="https://res.cloudinary.com/diwrxz82u/image/upload/v1704827375/video-library/six_i5j3ne.png" alt="project" data-index="5">
+<img width="400" src="https://res.cloudinary.com/diwrxz82u/image/upload/v1704827381/video-library/seven_fthsa5.png" alt="project" data-index="6">
+<img width="400" src="https://res.cloudinary.com/diwrxz82u/image/upload/v1704827387/video-library/eight_hs4q9q.png" alt="project" data-index="7">
+</div>
+<h3>key functionalities</h3>
+<ul>
+  <li>add video to watch later</li>
+  <li>delete video from watch later</li>
+  <li>create play list</li>
+  <li>add video to a particular play list</li>
+  <li>delete video from a particular play list</li><li>filtering products using predefined tags</li>
+  <li>infinite scrolling</li>
+  <li>loading state for all the functionalities</li><li>error handling for all the functionalities (frontend and backEnd)</li>
+  <li>notifications for all the functionalities</li><li>authentication</li>
+</ul>
+<h3>Lannguages and tools used:</h3>
+<ul>
+  <li>html</li>
+  <li>javscript</li>
+  <li>css</li>
+  <li>react</li>
+  <li>express</li>
+  <li>mongoose</li>
+  <li>bcrypt</li>
+  <li>jsonwebtoken</li>
+  <li>react-jwt</li>
+  <li>react-loader-spinner</li>
+  <li>react-router-dom</li>
+  <li>react-toastify</li>
+</ul>
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
