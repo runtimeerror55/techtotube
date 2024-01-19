@@ -12,7 +12,6 @@ const { authenticationRouter } = require("./routes/authentication");
 const { watchHistoryRouter } = require("./routes/watchHistory");
 
 console.log(process.env.db_url);
-
 console.log(process.env);
 
 mongoose
