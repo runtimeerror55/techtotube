@@ -11,6 +11,10 @@ const { playListsRouter } = require("./routes/playLists");
 const { authenticationRouter } = require("./routes/authentication");
 const { watchHistoryRouter } = require("./routes/watchHistory");
 
+console.log(process.env.db_url);
+
+console.log(process.env);
+
 mongoose
       .connect(
             "mongodb+srv://aakashdeep954:a1S6mNXvLK0b158x@portfoliocluster.c1qp6ud.mongodb.net/techtotube?retryWrites=true&w=majority"
