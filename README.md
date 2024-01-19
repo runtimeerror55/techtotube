@@ -29,10 +29,11 @@
 4. add video to a particular play list
 5. delete video from a particular play list
 6. filtering products using predefined tags
-7. loading state for all the functionalities
-8. error handling for all the functionalities (frontend and backEnd)
-9. notifications for all the functionalities
-10. authentication
+7. infinite scrolling
+8. loading state for all the functionalities
+9. error handling for all the functionalities (frontend and backEnd)
+10. notifications for all the functionalities
+11. authentication
 
 # Getting Started with Create React App
 
