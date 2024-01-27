@@ -81,7 +81,7 @@ export const Filtering = forwardRef(
                                                       value={id}
                                                 ></input>
                                                 <label
-                                                      for={id}
+                                                      htmlFor={id}
                                                       className={labelClassName}
                                                 >
                                                       {id}
@@ -89,20 +89,6 @@ export const Filtering = forwardRef(
                                           </>
                                     );
                               })}
-
-                              <select
-                                    name="sort"
-                                    className={styles["sort-filter"]}
-                              >
-                                    <option value="" disabled selected>
-                                          sortby
-                                    </option>
-                                    <option value="1">price low to high</option>
-
-                                    <option value="-1">
-                                          price high to low
-                                    </option>
-                              </select>
                         </Form>
                   </section>
             );

@@ -86,7 +86,12 @@ export const HomePage = () => {
                               <PageLandingLoader></PageLandingLoader>
                         ) : (
                               loaderData.payload.map((video, index) => {
-                                    return <Video video={video}></Video>;
+                                    return (
+                                          <Video
+                                                video={video}
+                                                key={video._id}
+                                          ></Video>
+                                    );
                               })
                         )}
                   </section>
