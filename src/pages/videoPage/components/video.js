@@ -118,12 +118,12 @@ export const Video = ({ playingVideo, watchLaterVideos }) => {
                               </div>
                         </div>
                         <div className={styles["video-options"]}>
-                              <button className={styles["video-like-button"]}>
+                              {/* <button className={styles["video-like-button"]}>
                                     <FontAwesomeIcon
                                           icon={faHeart}
                                           className={styles["video-like-icon"]}
                                     />
-                              </button>
+                              </button> */}
                               {showAddToWatchLaterLoader ? (
                                     <Bars
                                           height="20"

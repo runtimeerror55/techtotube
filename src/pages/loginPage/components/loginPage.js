@@ -42,6 +42,7 @@ export const LoginPage = () => {
                                           className={
                                                 styles["user-details-input"]
                                           }
+                                          defaultValue="guest"
                                     ></input>
                                     <input
                                           type="password"
@@ -52,6 +53,7 @@ export const LoginPage = () => {
                                           className={
                                                 styles["user-details-input"]
                                           }
+                                          defaultValue="guest2143@"
                                     ></input>
                               </ButtonWithActionAndLoader>
                               <Link

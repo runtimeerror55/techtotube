@@ -16,7 +16,7 @@ export const VideoPage = () => {
                   method: "PUT",
                   action: `/watchHistory/${playingVideo._id}`,
             });
-      }, []);
+      }, [playingVideo._id]);
       return (
             <>
                   <main className={styles["main"]}>
