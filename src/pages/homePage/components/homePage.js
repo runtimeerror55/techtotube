@@ -25,7 +25,7 @@ export const HomePage = () => {
                                     document.documentElement.scrollHeight -
                                           window.scrollY -
                                           document.documentElement.clientHeight
-                              ) <= 1
+                              ) <= 10
                         ) {
                               //   setFilterValues((previous) => {
                               //         return {
