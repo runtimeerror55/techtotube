@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useAsyncValue } from "react-router-dom";
 import styles from "../cssModules/homePage.module.css";
 import { Video } from "./video";
@@ -15,17 +15,42 @@ export const HomePage = () => {
       });
       const [showNextPageItems, setShowNextPageItems] = useState(false);
       const [nextpageData, setShowNextPageData] = useState("success");
+      const triggerRef = useRef();
 
+      //   useEffect(() => {
+      //         const scrollEventCallBack = (event) => {
+      //               console.log(showNextPageItems);
+      //               if (!showNextPageItems) {
+      //                     if (
+      //                           Math.abs(
+      //                                 document.documentElement.scrollHeight -
+      //                                       window.scrollY -
+      //                                       document.documentElement.clientHeight
+      //                           ) <= 1
+      //                     ) {
+      //                           //   setFilterValues((previous) => {
+      //                           //         return {
+      //                           //               ...previous,
+      //                           //               page: previous.page + 1,
+      //                           //         };
+      //                           //   });
+      //                           setShowNextPageItems(true);
+      //                     }
+      //               }
+      //         };
+      //         window.addEventListener("scroll", scrollEventCallBack);
+      //         return () => {
+      //               window.removeEventListener("scroll", scrollEventCallBack);
+      //         };
       useEffect(() => {
             const scrollEventCallBack = (event) => {
-                  console.log(showNextPageItems);
+                  const triggerElementPostionInformation =
+                        triggerRef.current.getBoundingClientRect();
+
                   if (!showNextPageItems) {
                         if (
-                              Math.abs(
-                                    document.documentElement.scrollHeight -
-                                          window.scrollY -
-                                          document.documentElement.clientHeight
-                              ) <= 10
+                              triggerElementPostionInformation.top + 40 <
+                              window.innerHeight
                         ) {
                               //   setFilterValues((previous) => {
                               //         return {
@@ -41,7 +66,7 @@ export const HomePage = () => {
             return () => {
                   window.removeEventListener("scroll", scrollEventCallBack);
             };
-      }, []);
+      }, []); //   }, []);
 
       if (loaderData.status === "error") {
             return <div>{loaderData.message}</div>;
@@ -76,6 +101,7 @@ export const HomePage = () => {
                               ></NextPageItems>
                         </section>
                   ) : null}
+                  <div style={{ height: "50px" }} ref={triggerRef}></div>
             </main>
       );
 };
