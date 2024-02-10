@@ -4,6 +4,9 @@
 <p>A web based tech reviews app. Find all the tech related reviews all in one place.</p>
 <h3>Media</h3>
 <div>
+    <a href="https://res.cloudinary.com/diwrxz82u/video/upload/v1706901408/video-library/video-library_seg1uj.mp4"> 
+        <img width="400" src="https://res.cloudinary.com/diwrxz82u/image/upload/v1707563711/video-library/Screenshot_98_ketat6.png" alt="project" class="projectImage_project-image__+c7s+" data-index="0">
+    </a>
 <img width="400" src="https://res.cloudinary.com/diwrxz82u/image/upload/v1704827346/video-library/one_di3c4g.png" alt="project" data-index="0">
 
 <img width="400" src="https://res.cloudinary.com/diwrxz82u/image/upload/v1704827353/video-library/two_ai2amb.png" alt="project" data-index="1">
